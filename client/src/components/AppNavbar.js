@@ -5,15 +5,13 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
-    NavLink,
-    Container
 } from 'reactstrap'
+import {NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import RegisterModal from './auth/RegisterModal'
-import LoginModal from './auth/LoginModal';
 import Logout from './auth/Logout'
+import { logout } from '../actions/authActions'
 import WatchList from './WatchList'
 import Stats from './Stats'
 import TradeList from './TradeList';
@@ -33,9 +31,15 @@ class AppNavbar extends Component {
             })
         }
 
+        handleLogout = () => {
+            this.props.logout()
+            this.props.history.push('/')
+        }
+
         render() {
             const { isAuthenticated, user } = this.props.auth;
 
+            /*
             const authLinks = (
                 <Fragment>
                     <NavItem>
@@ -48,7 +52,13 @@ class AppNavbar extends Component {
                     </NavItem>
                 </Fragment>
             )
+            */
 
+            const logoutButton = (
+                <a onClick={this.handleLogout} className="logout-btn">LOGOUT</a>
+            )
+
+            /*
             const guestLinks = (
                 <Fragment>
                     <NavItem>
@@ -59,23 +69,27 @@ class AppNavbar extends Component {
                     </NavItem>
                 </Fragment>
             );
+            */
+
+
+        
 
             return ( 
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
-                    <Container>
-                        <NavbarBrand href="/">Trade Tracker</NavbarBrand>
-                        <NavLink href="/journal" component={TradeList}>Journal</NavLink>
-                        <NavLink href="/watchlist" component={WatchList}>Watchlist</NavLink>
-                        <NavLink href="/progress" component={Stats}>Progress</NavLink>
+                    <div className="container">
+                        <NavbarBrand className="nav-brand">Trade Tracker</NavbarBrand>
+                        <NavLink to="/journal" className="nav-item" component={TradeList}>Journal</NavLink>
+                        <NavLink to="/watchlist" className="nav-item" component={WatchList}>Watchlist</NavLink>
+                        <NavLink to="/progress" className="nav-item" component={Stats}>Progress</NavLink>
                         <NavbarToggler onClick={this.toggle} /> 
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar> 
-                                
-                                { isAuthenticated ? authLinks : guestLinks}
+                            
+                                { isAuthenticated && logoutButton }
                             </Nav>
                         </Collapse>
-                    </Container>
+                    </div>
                 </Navbar>
             </div>
             
@@ -88,4 +102,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, null)(AppNavbar);
+export default withRouter(connect(mapStateToProps, { logout })(AppNavbar));

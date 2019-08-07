@@ -5,7 +5,7 @@ export default class Stats extends Component {
     render() {
         return (
             <Container>
-                <h1>Progress maneee</h1>
+                <h1>Progress</h1>
             </Container>
         )
     }

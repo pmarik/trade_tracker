@@ -20,3 +20,30 @@
   transition: opacity 1000ms ease-in;
 
 }
+
+.nav-brand {
+  color: white !important;
+}
+
+.logout-btn {
+  color: grey !important;
+}
+
+.logout-btn:hover {
+  color: white !important;
+  cursor: pointer;
+}
+
+.active {
+  border-bottom: 3px solid white
+}
+
+.nav-item{
+  padding: 10px 10px 10px 10px;
+  color: rgb(165, 197, 165)
+}
+
+.nav-item:hover{
+  color: white;
+  text-decoration: none;
+}

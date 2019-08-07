@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { login } from '../../actions/authActions';
+import { clearErrors } from '../../actions/errorActions';
+import { withRouter } from 'react-router-dom'
 import {
     Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
     Form,
     FormGroup,
     Label,
     Input,
-    NavLink,
     Alert,
     Container,
     Jumbotron
 } from 'reactstrap';
 
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { login } from '../../actions/authActions';
-import { clearErrors } from '../../actions/errorActions';
 
-class LoginModal extends Component{
+
+class Login extends Component{
     state = {
         modal: true,
         email: '',
         password: '',
-        msg: null
+        msg: null,
+
     }
 
     static propTypes = {
@@ -40,32 +39,27 @@ class LoginModal extends Component{
             //check for register error 
             if(error.id === 'LOGIN_FAIL'){
                 this.setState({ msg: error.msg.msg })
+
             }
             else{
                 this.setState({ msg: null })
             }
         }
         
-        //if authenticated then close modal
-        if(this.state.modal){
+        //if authenticated then redirect to main app
             if(isAuthenticated){
-                this.toggle();
+                this.props.history.push("/journal")
             }
-        }
+        
     }
     
-    toggle = () => {
-        //clear errors
-        this.props.clearErrors();
-        this.setState({
-            modal: !this.state.modal
-        })
-    }
 
     onChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+  
         })
+        
     }
 
 
@@ -81,61 +75,72 @@ class LoginModal extends Component{
     //attempt to login
        this.props.login(user);
 
-        
+     
     }
 
+
     render(){
+        
+        let styles = {
+            outer: {
+                textAlign: "center",
+                marginTop: "5%"
+            },
+            inner: {
+                textAlign: "center",
+            }
+            
+        }
+
         return (
-            <Container>
-                <Jumbotron>
-            <h1 style={{
-                textAlign: "center"
-            }}>Login or Register</h1>
-                </Jumbotron>
+            
+            <Fragment>
+                <div style={styles.outer}>
+                    <h1 style={styles}>Trade Tracker</h1>
 
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}
-                    style={{
-                        top: "20%"
-                    }}>
+                    <Container>
+                        <Jumbotron>
+                        
+                        <h1 style={styles.inner}>Login or Register</h1>
 
-                    
-                    <ModalBody>
                         { this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
-                        <Form onSubmit={this.onSubmit}>
-                            <FormGroup>
-                                
 
-                                <Label for="email">Email</Label>
-                                <Input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Email"
-                                    className="mb-3"
-                                    onChange={this.onChange}
-                                    />
+                            <Form onSubmit={this.onSubmit}>
+                                <FormGroup>
+                                    
 
-                                <Label for="password">Password</Label>
-                                <Input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    placeholder="Password"
-                                    className="mb-3"
-                                    onChange={this.onChange}
-                                    />
-                                <Button
-                                    color="dark"
-                                    style={{marginTop: '2rem'}}
-                                    block>
-                                        Login</Button>
-                            </FormGroup>
-                        </Form>
-                    </ModalBody>
-                </Modal>
-            </Container>
+                                    <Label for="email">Email</Label>
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="Email"
+                                        className="mb-3"
+                                        onChange={this.onChange}
+                                        />
+
+                                    <Label for="password">Password</Label>
+                                    <Input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Password"
+                                        className="mb-3"
+                                        onChange={this.onChange}
+                                        />
+                                    <Button
+                                        color="dark"
+                                        style={{marginTop: '2rem'}}
+                                        block>
+                                            Login</Button>
+                                </FormGroup>
+                            </Form>
+                        </Jumbotron>
+                    </Container>
+                </div>
+            </Fragment>
+
+           
         )
     }
 }
@@ -145,4 +150,6 @@ const mapStateToProps = state => ({
     error: state.error
 })
 
-export default connect(mapStateToProps, { login, clearErrors })(LoginModal)
+
+export default connect(mapStateToProps, { login, clearErrors })(withRouter(Login))
+ 
