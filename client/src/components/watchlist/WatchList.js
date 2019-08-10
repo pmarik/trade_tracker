@@ -8,11 +8,15 @@ export default class WatchList extends Component {
     render() {
         return (
             <Container>
-                <h1>Watchlist</h1>
+                
                 <div className="calculator">
+                    <h1>Risk Calculator</h1>
                     <RiskCalculator /> 
                 </div>
-                <div className="AlertWatchlist">
+                
+            
+                <div className="alertWatchlist">
+                    <h1>Watchlist</h1>
                     <AlertWatchlist /> 
                 </div>
             </Container>

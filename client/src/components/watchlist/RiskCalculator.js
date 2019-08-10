@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PortfolioValue from './PortfolioValue'
 import Calculator from './Calculator'
 import ShareResult from './ShareResult'
+import { connect } from 'react-redux';
 
 export default class RiskCalculator extends Component {
 
+    
     state = {
         portfolio: 2000,
         riskPercent: 3,
@@ -19,6 +21,7 @@ export default class RiskCalculator extends Component {
         canAfford: false,
         isVisible: false
     }
+    
 
     handleChange = (e) => {
         const name = e.target.name
@@ -123,3 +126,12 @@ export default class RiskCalculator extends Component {
         )
     }
 }
+
+/*** Must create action to update state when it changes... ***/
+/*
+const mapStateToProps = state => ({
+    watch: state.watch
+})
+
+export default connect(mapStateToProps, null)(RiskCalculator)
+*/

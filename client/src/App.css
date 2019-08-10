@@ -57,6 +57,14 @@
   width: 40%;
   height: 100%;
   background-color: lightgrey;
+  display: inline-block;
+}
+
+.alertWatchlist{
+  width: 55%;
+  background-color: lightgreen;
+  display: inline-block;
+  margin-left: 5%;
 }
 
 .inline_p{
@@ -90,6 +98,8 @@
 }
 
 .calculatorForm{
+  flex-direction: column;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
+
