@@ -6,8 +6,8 @@ import store from './store';
 import { loadUser } from './actions/authActions';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './components/auth/Login'
-import AppLayout from './AppLayout'
-import  PrivateRoute from './components/ProtectedRoute'
+import AppLayout from './components/AppLayout'
+import  PrivateRoute from './components/auth/ProtectedRoute'
 
 
  class App extends Component {

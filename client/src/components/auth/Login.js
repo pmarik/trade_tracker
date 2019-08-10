@@ -99,7 +99,7 @@ class Login extends Component{
                     <h1 style={styles}>Trade Tracker</h1>
 
                     <Container>
-                        <Jumbotron>
+                        <Jumbotron >
                         
                         <h1 style={styles.inner}>Login or Register</h1>
 

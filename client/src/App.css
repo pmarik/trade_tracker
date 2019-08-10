@@ -47,3 +47,49 @@
   color: white;
   text-decoration: none;
 }
+
+
+/* ========
+  Watchlist Styles
+   ======== */
+
+.calculator{
+  width: 40%;
+  height: 100%;
+  background-color: lightgrey;
+}
+
+.inline_p{
+  display: inline
+}
+
+.portfolioValue{
+  width: 3rem;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+
+.input{
+  border-radius: 8px;
+  text-align: center;
+}
+
+.riskValue {
+  width: 2rem;
+  margin-left: 5px;
+}
+
+.calculator_input{
+  margin-left: 10px;
+  width: 5.5rem;
+}
+
+.calculator_label{
+  display: block;
+  margin: 0 auto;
+}
+
+.calculatorForm{
+  display: flex;
+  justify-content: center;
+}

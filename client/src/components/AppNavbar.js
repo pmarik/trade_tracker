@@ -12,9 +12,9 @@ import PropTypes from 'prop-types'
 import RegisterModal from './auth/RegisterModal'
 import Logout from './auth/Logout'
 import { logout } from '../actions/authActions'
-import WatchList from './WatchList'
-import Stats from './Stats'
-import TradeList from './TradeList';
+import WatchList from './watchlist/WatchList'
+import Progress from './progress/Progress'
+import TradeList from './journal/TradeList';
 
 class AppNavbar extends Component {
         state = {
@@ -81,7 +81,7 @@ class AppNavbar extends Component {
                         <NavbarBrand className="nav-brand">Trade Tracker</NavbarBrand>
                         <NavLink to="/journal" className="nav-item" component={TradeList}>Journal</NavLink>
                         <NavLink to="/watchlist" className="nav-item" component={WatchList}>Watchlist</NavLink>
-                        <NavLink to="/progress" className="nav-item" component={Stats}>Progress</NavLink>
+                        <NavLink to="/progress" className="nav-item" component={Progress}>Progress</NavLink>
                         <NavbarToggler onClick={this.toggle} /> 
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar> 

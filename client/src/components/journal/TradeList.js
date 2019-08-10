@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
-import { getItems, deleteItem } from '../actions/itemActions';
+import { getItems, deleteItem } from '../../actions/itemActions';
 import { connect } from 'react-redux';
 import { Container, Button, Table } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -47,7 +47,7 @@ class TradeList extends Component{
                    <thead className="thead-light">
                        <tr>
                            <th>Ticker</th>
-                           <th>Date</th>
+                           <th>Date Exit</th>
                            <th>Entry</th>
                            <th>Exit</th>
                            <th>P/L</th>
@@ -66,14 +66,6 @@ class TradeList extends Component{
                                                 <td>{exit}</td>
                                                 <td>{pL}</td>
                                                 <td>{fees}</td>
-                                                <td>
-                                                    <Button
-                                                      className="edit-btn"
-                                                      color="warning"
-                                                      size="sm"  >
-                                                    Edit
-                                                    </Button>
-                                                </td>
                                                 <td>       <Button
                                         className="remove-btn"
                                         color="danger"
@@ -84,12 +76,6 @@ class TradeList extends Component{
 
                                 </CSSTransition>
                             ))}
-                       
-                    
-
-                       {/*<tr>
-                           <td></td>
-                       </tr>*/}
                    </tbody>
                </Table>
            </Container>
