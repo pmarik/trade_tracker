@@ -11,7 +11,7 @@ const ShareResult = (props) => {
 
     let notAfford = 
         <div>
-            <h3>Out of Price Range! ${props.totalPrice}</h3>
+            <h3 style={{backgroundColor: "#fd7d7d"}}>Out of Price Range! ${props.totalPrice}</h3>
         </div>
 
     return (

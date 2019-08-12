@@ -1,6 +1,7 @@
-import { GET_CALCULATOR_VALS } from '../actions/types'
+import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE } from '../actions/types'
 
 const initialState = {
+        watchlist: [],
         portfolio: 2000,
         riskPercent: 3,
         riskDollarValue: 60,
@@ -9,16 +10,52 @@ const initialState = {
         stopPrice: '',
         numShares: '',
         target: 0,
-        isLong: false,
-        totalPrice: '',
-        canAfford: false,
-        isVisible: false
+        totalPrice: ''
 }
 
 export default function(state = initialState, action) {
     switch(action.type){
-        case GET_CALCULATOR_VALS:
-            return state
+        case SET_RISK_PERCENT:
+            return {
+                ...state,
+                riskPercent: action.riskPercent,
+                riskDollarValue: action.riskDollars
+            }
+
+        case SET_PORTFOLIO_VALUE:
+            return {
+                ...state,
+                portfolio: action.portfolioValue,
+                riskDollarValue: action.riskDollars
+            }
+
+        case CALCULATE_RISK: 
+            return {
+                ...state,
+                target: action.target,
+                totalPrice: action.totalPrice,
+                numShares: action.totalShares
+            }
+
+        case RESET_CALCULATOR:
+            return {
+                ...state,
+                ticker: '',
+                buyPrice: '',
+                stopPrice: '',
+                numShares: '',
+                sellStop: '',
+                target: 0,
+                totalPrice: '',
+            }
+
+        case CALCULATOR_CHANGE:
+            let name = action.name
+            return {
+                ...state,
+                [name]: action.value
+            }
+
         default:
             return state
     }

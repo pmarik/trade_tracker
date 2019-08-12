@@ -7,7 +7,7 @@ import AlertWatchlist from './AlertWatchlist';
 export default class WatchList extends Component {
     render() {
         return (
-            <Container>
+            <Container className="flexSplit">
                 
                 <div className="calculator">
                     <h1>Risk Calculator</h1>

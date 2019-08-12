@@ -53,15 +53,24 @@
   Watchlist Styles
    ======== */
 
+.flexSplit{
+display: flex;
+justify-content: center;
+align-items: flex-start;
+align-content: space-between;
+}
+
 .calculator{
   width: 40%;
-  height: 100%;
+  height: 80vh;
   background-color: lightgrey;
   display: inline-block;
 }
 
 .alertWatchlist{
   width: 55%;
+  height: 80vh;
+  top: 0;
   background-color: lightgreen;
   display: inline-block;
   margin-left: 5%;

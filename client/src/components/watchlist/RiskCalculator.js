@@ -3,21 +3,14 @@ import PortfolioValue from './PortfolioValue'
 import Calculator from './Calculator'
 import ShareResult from './ShareResult'
 import { connect } from 'react-redux';
+import { setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange } from '../../actions/watchActions'
 
-export default class RiskCalculator extends Component {
+
+class RiskCalculator extends Component {
 
     
     state = {
-        portfolio: 2000,
-        riskPercent: 3,
-        riskDollarValue: 60,
-        ticker: '',
-        buyPrice: '',
-        stopPrice: '',
-        numShares: '',
-        target: 0,
         isLong: false,
-        totalPrice: '',
         canAfford: false,
         isVisible: false
     }
@@ -28,23 +21,15 @@ export default class RiskCalculator extends Component {
         const value = e.target.value
 
             if (name === "riskPercent"){
-                let newRisk = this.state.portfolio * (value * .01);
-                this.setState({
-                    riskDollarValue: newRisk,
-                    [name]: value
-                })
+                let newRisk = this.props.portfolio * (value * .01);
+                this.props.setRiskPercent(value, newRisk)
             }
             else if (name === "portfolio"){
-                let newRisks = value * (this.state.riskPercent * .01);
-                this.setState({
-                    portfolio: value, 
-                    riskDollarValue: newRisks
-                })
+                let newRisks = value * (this.props.riskPercent * .01);
+                this.props.setPortfolioValue(value, newRisks)
             }
             else {
-                this.setState({
-                    [name]: value
-                })
+                this.props.handleCalculatorChange(name, value)
             }
        
     }
@@ -59,54 +44,41 @@ export default class RiskCalculator extends Component {
 
 
     calculate = () => {
-        const numOfShares = this.state.riskDollarValue / (this.state.buyPrice - this.state.stopPrice);
+        const numOfShares = this.props.riskDollarValue / (this.props.buyPrice - this.props.stopPrice);
         const totalShares = Math.abs(Math.round(numOfShares));
-        const totalPrice = totalShares * this.state.buyPrice;
+        const totalPrice = totalShares * this.props.buyPrice;
         let canAfford = false; 
 
-        if(totalPrice < this.state.portfolio - 20) {
+        if(totalPrice < this.props.portfolio - 20) {
             canAfford = true;
         }
 
-        const target = parseInt(this.state.buyPrice) + parseInt(((this.state.buyPrice - this.state.stopPrice) * 2))
+        const target = parseInt(this.props.buyPrice) + parseInt(((this.props.buyPrice - this.props.stopPrice) * 2))
        
-        if(target < this.state.buyPrice){
+        if(target < this.props.buyPrice){
             this.setState({
                 isLong: false,
-                target,
-                totalPrice,
-                numShares: totalShares,
                 canAfford
             })
         }
         else{
             this.setState({
                 isLong: true,
-                target,
-                totalPrice,
-                numShares: totalShares,
                 canAfford
             })
         }
 
-        console.log(this.state.isLong);
-
+        this.props.calculateRisk(target, totalPrice, totalShares)
      
     }
 
     resetCaculator = () => {
         this.setState({
-            ticker: '',
-            buyPrice: '',
-            stopPrice: '',
-            numShares: '',
-            sellStop: '',
-            target: 0,
-            direction: 'LONG',
-            totalPrice: '',
             isLong: true,
             isVisible: false
         })
+
+        this.props.resetStateCalculator();
     }
 
     render() {
@@ -115,11 +87,11 @@ export default class RiskCalculator extends Component {
         return (
             <div>
 
-                <PortfolioValue portfolio={this.state.portfolio} riskPercent={this.state.riskPercent} riskDollarValue={this.state.riskDollarValue} handleChange={this.handleChange} /> 
+                <PortfolioValue portfolio={this.props.portfolio} riskPercent={this.props.riskPercent} riskDollarValue={this.props.riskDollarValue} handleChange={this.handleChange} /> 
                 <hr /> 
-                <Calculator handleSubmit={this.handleSubmit} handleChange={this.handleChange} ticker={this.state.ticker} buyPrice={this.state.buyPrice} stopPrice={this.state.stopPrice} calculate={this.calculate} resetCaculator={this.resetCaculator} /> 
+                <Calculator handleSubmit={this.handleSubmit} handleChange={this.handleChange} ticker={this.props.ticker} buyPrice={this.props.buyPrice} stopPrice={this.props.stopPrice} calculate={this.calculate} resetCaculator={this.resetCaculator} /> 
                 <hr /> 
-                {this.state.isVisible && <ShareResult direction={this.state.direction} numShares={this.state.numShares} totalPrice={this.state.totalPrice} isLong={this.state.isLong} stopPrice={this.state.stopPrice} target={this.state.target} canAfford={this.state.canAfford}/> }
+                {this.state.isVisible && <ShareResult numShares={this.props.numShares} totalPrice={this.props.totalPrice} isLong={this.state.isLong} stopPrice={this.props.stopPrice} target={this.props.target} canAfford={this.state.canAfford}/> }
 
 
             </div>
@@ -127,11 +99,21 @@ export default class RiskCalculator extends Component {
     }
 }
 
-/*** Must create action to update state when it changes... ***/
-/*
+
 const mapStateToProps = state => ({
-    watch: state.watch
+    portfolio: state.watch.portfolio,
+    riskPercent: state.watch.riskPercent,
+    riskDollarValue: state.watch.riskDollarValue,
+    ticker: state.watch.ticker,
+    buyPrice: state.watch.buyPrice,
+    stopPrice: state.watch.stopPrice,
+    numShares: state.watch.numShares,
+    target: state.watch.target,
+    totalPrice: state.watch.totalPrice
 })
 
-export default connect(mapStateToProps, null)(RiskCalculator)
-*/
+export default connect(mapStateToProps, {setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange})(RiskCalculator)
+
+
+
+
