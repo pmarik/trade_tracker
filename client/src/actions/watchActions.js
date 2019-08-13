@@ -1,4 +1,4 @@
-import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE  } from './types';
+import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM  } from './types';
 
 
 
@@ -40,3 +40,14 @@ export const handleCalculatorChange = (name, value) => {
         value
     }
 }
+
+export const addWatchlistItem = (ticker, totalShares, buyPrice, stopPrice) => {
+    return {
+        type: ADD_WATCHLIST_ITEM,
+        ticker,
+        totalShares,
+        buyPrice,
+        stopPrice
+    }
+}
+

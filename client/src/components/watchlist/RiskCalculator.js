@@ -3,7 +3,7 @@ import PortfolioValue from './PortfolioValue'
 import Calculator from './Calculator'
 import ShareResult from './ShareResult'
 import { connect } from 'react-redux';
-import { setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange } from '../../actions/watchActions'
+import { setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem} from '../../actions/watchActions'
 
 
 class RiskCalculator extends Component {
@@ -69,6 +69,7 @@ class RiskCalculator extends Component {
         }
 
         this.props.calculateRisk(target, totalPrice, totalShares)
+        this.props.addWatchlistItem(this.props.ticker, totalShares, this.props.buyPrice, this.props.stopPrice)
      
     }
 
@@ -101,6 +102,7 @@ class RiskCalculator extends Component {
 
 
 const mapStateToProps = state => ({
+    watchlist: state.watch.watchlist,
     portfolio: state.watch.portfolio,
     riskPercent: state.watch.riskPercent,
     riskDollarValue: state.watch.riskDollarValue,
@@ -112,7 +114,7 @@ const mapStateToProps = state => ({
     totalPrice: state.watch.totalPrice
 })
 
-export default connect(mapStateToProps, {setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange})(RiskCalculator)
+export default connect(mapStateToProps, {setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem })(RiskCalculator)
 
 
 
