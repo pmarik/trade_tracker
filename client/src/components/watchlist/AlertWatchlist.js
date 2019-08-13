@@ -1,34 +1,47 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { deleteWatchItem } from '../../actions/watchActions'
+import { CSSTransition } from 'react-transition-group';
 
 
 class AlertWatchlist extends Component {
 
+    
+
+    deleteItem = (id) => {
+        this.props.deleteWatchItem(id);
+    }
 
     render() {
-
-
         return (
             <div>
-                <thead>
-                    <th>Ticker</th>
-                    <th># Shares</th>
-                    <th>Buy</th>
-                    <th>Stop</th>
-                </thead>
-
-
-                <tbody>
-                    {this.props.watchlist.map(({watchTicker, watchShares, watchBuy, watchStop}) => (
+                <table>
+                    <thead>
                         <tr>
-                            <td>{watchTicker}</td>
-                            <td>{watchShares}</td>
-                            <td>{watchBuy}</td>
-                            <td>{watchStop}</td>
+                            <th>Ticker</th>
+                            <th># Shares</th>
+                            <th>Buy</th>
+                            <th>Stop</th>
                         </tr>
-                    ))}
-                </tbody>
+                    </thead>
+
+
+                    <tbody>
+                        {this.props.watchlist.map(({ watchTicker, watchShares, watchBuy, watchStop, watchIsLong, watchId}) => (
+                            <CSSTransition key={watchId} timeout={500} classNames="fade">
+                                <tr>
+                                    <td>{watchTicker}</td>
+                                    <td>{watchShares}</td>
+                                    <td>{watchBuy}</td>
+                                    <td>{watchStop}</td>
+                                    <td>
+                                        <button onClick={() => this.deleteItem(watchId)}>X</button>
+                                    </td>
+                                </tr>
+                            </CSSTransition>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         )
     }
@@ -36,12 +49,6 @@ class AlertWatchlist extends Component {
 
 const mapStateToProps = state => ({
     watchlist: state.watch.watchlist,
-    ticker: state.watch.ticker,
-    numShares: state.watch.numShares,
-    buyPrice: state.watch.buyPrice,
-    stopPrice: state.watch.stopPrice,
-    target: state.watch.target
-
 })
 
-export default connect(mapStateToProps, null)(AlertWatchlist);
+export default connect(mapStateToProps, { deleteWatchItem })(AlertWatchlist);

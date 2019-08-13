@@ -20,7 +20,7 @@ export const addItem = item => (dispatch, getState) => {
         .post('/api/items', item, tokenConfig(getState))
         .then(res => dispatch({
             type: ADD_ITEM,
-            payload: res.data
+            payload: res.data 
         }) )    
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 

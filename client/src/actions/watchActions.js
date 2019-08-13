@@ -1,4 +1,4 @@
-import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM  } from './types';
+import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM, DELETE_WATCH_ITEM } from './types';
 
 
 
@@ -41,13 +41,20 @@ export const handleCalculatorChange = (name, value) => {
     }
 }
 
-export const addWatchlistItem = (ticker, totalShares, buyPrice, stopPrice) => {
+export const addWatchlistItem = (ticker, totalShares, buyPrice, stopPrice, id) => {
     return {
         type: ADD_WATCHLIST_ITEM,
         ticker,
         totalShares,
         buyPrice,
-        stopPrice
+        stopPrice,
+        id
     }
 }
 
+export const deleteWatchItem = (id) => (dispatch, getState) => {
+    dispatch({
+        type: DELETE_WATCH_ITEM,
+        id
+    })
+}

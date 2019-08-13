@@ -4,7 +4,7 @@ import Calculator from './Calculator'
 import ShareResult from './ShareResult'
 import { connect } from 'react-redux';
 import { setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem} from '../../actions/watchActions'
-
+import uuid from 'uuid';
 
 class RiskCalculator extends Component {
 
@@ -69,7 +69,11 @@ class RiskCalculator extends Component {
         }
 
         this.props.calculateRisk(target, totalPrice, totalShares)
-        this.props.addWatchlistItem(this.props.ticker, totalShares, this.props.buyPrice, this.props.stopPrice)
+
+        if(canAfford){
+            const id = uuid();
+            this.props.addWatchlistItem(this.props.ticker, totalShares, this.props.buyPrice, this.props.stopPrice, id)
+        }
      
     }
 
@@ -87,7 +91,6 @@ class RiskCalculator extends Component {
 
         return (
             <div>
-
                 <PortfolioValue portfolio={this.props.portfolio} riskPercent={this.props.riskPercent} riskDollarValue={this.props.riskDollarValue} handleChange={this.handleChange} /> 
                 <hr /> 
                 <Calculator handleSubmit={this.handleSubmit} handleChange={this.handleChange} ticker={this.props.ticker} buyPrice={this.props.buyPrice} stopPrice={this.props.stopPrice} calculate={this.calculate} resetCaculator={this.resetCaculator} /> 

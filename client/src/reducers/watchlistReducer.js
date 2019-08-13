@@ -1,4 +1,4 @@
-import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM } from '../actions/types'
+import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM, DELETE_WATCH_ITEM } from '../actions/types'
 
 const initialState = {
         watchlist: [],
@@ -62,11 +62,19 @@ export default function(state = initialState, action) {
                 watchTicker: action.ticker,
                 watchShares: action.totalShares,
                 watchBuy: action.buyPrice,
-                watchStop: action.stopPrice
+                watchStop: action.stopPrice,
+                watchId: action.id
              }
             return {
                 ...state,
                 watchlist: [...state.watchlist, addedWatch ]
+            }
+
+        case DELETE_WATCH_ITEM:
+            let newWatchlist = state.watchlist.filter(item => {return item.watchId !== action.id})
+            return {
+                ...state,
+                watchlist: newWatchlist
             }
 
         default:
