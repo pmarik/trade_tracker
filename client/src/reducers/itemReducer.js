@@ -26,11 +26,11 @@ export default function(state = initialState, action){
                 items: [action.payload, ...state.items]
             }
 
-            case ITEMS_LOADING:
-                    return {
-                        ...state,
-                        loading: true
-                    }
+        case ITEMS_LOADING:
+                return {
+                    ...state,
+                    loading: true
+                }
         default: 
             return state;
     }

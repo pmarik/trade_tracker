@@ -17,12 +17,13 @@ export const getItems = () => dispatch => {
 
 export const addItem = item => (dispatch, getState) => {
     axios
-        .post('/api/items', item, tokenConfig(getState))
+.post('/api/items', item, tokenConfig(getState))
         .then(res => dispatch({
             type: ADD_ITEM,
             payload: res.data 
         }) )    
-        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+        .catch(err => "damnn")
+        //dispatch(returnErrors(err.response.data, err.response.status)))
 
     
 }

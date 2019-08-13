@@ -24,10 +24,10 @@ class RiskCalculator extends Component {
                 let newRisk = this.props.portfolio * (value * .01);
                 this.props.setRiskPercent(value, newRisk)
             }
-            else if (name === "portfolio"){
-                let newRisks = value * (this.props.riskPercent * .01);
-                this.props.setPortfolioValue(value, newRisks)
-            }
+            // else if (name === "portfolio"){
+            //     let newRisks = value * (this.props.riskPercent * .01);
+            //     this.props.setPortfolioValue(value, newRisks)
+            // }
             else {
                 this.props.handleCalculatorChange(name, value)
             }

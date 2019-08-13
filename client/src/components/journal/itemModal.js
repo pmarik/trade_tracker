@@ -41,13 +41,32 @@ class ItemModal extends Component{
     onSubmit = e => {
         e.preventDefault();
 
+        let calcPL;
+
+        if(parseInt(this.state.entry, 10) > parseInt(this.state.stopPrice, 10)) {
+            calcPL = (this.state.exit - this.state.entry) * this.state.numShares;
+            console.log("long " + this.state.ticker)
+            console.log(typeof this.state.entry)
+        }
+        else{
+            calcPL = (this.state.entry - this.state.exit) * this.state.numShares;
+            console.log("short " + this.state.ticker)
+            console.log(typeof this.state.entry);
+        }
+      
+
         const newItem = {
             ticker: this.state.ticker,
+            numShares: this.state.numShares,
             entry: this.state.entry,
             exit: this.state.exit,
-            fees: this.state.fees,
-            pL: this.state.pL,
-            date: this.state.date
+            stopPrice: this.state.stopPrice,
+            pL: calcPL,
+            entryDate: this.state.entryDate,
+            exitDate: this.state.exitDate,
+            strategy: this.state.strategy,
+            winLose: this.state.winLose,
+            note: this.state.note
         }
 
 
@@ -84,6 +103,15 @@ class ItemModal extends Component{
                                     placeholder="Add ticker name"
                                     onChange={this.onChange}
                                     />
+                                <Label for="item"># Shares</Label>
+                                <Input
+                                    type="number"
+                                    step="1"
+                                    name="numShares"
+                                    id="item"
+                                    placeholder="Add number of shares"
+                                    onChange={this.onChange}
+                                    />
                                 <Label for="item">Entry</Label>
                                 <Input
                                     type="number"
@@ -102,16 +130,16 @@ class ItemModal extends Component{
                                     placeholder="Add exit price"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Fees</Label>
+                                <Label for="item">Stop Price</Label>
                                 <Input
                                     type="number"
                                     step="0.01"
-                                    name="fees"
+                                    name="stopPrice"
                                     id="item"
-                                    placeholder="Add fee price"
+                                    placeholder="Add stop price"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">P/L</Label>
+                                {/* <Label for="item">P/L</Label>
                                 <Input
                                     type="number"
                                     step="0.01"
@@ -119,19 +147,50 @@ class ItemModal extends Component{
                                     id="item"
                                     placeholder="Add profit or loss amount"
                                     onChange={this.onChange}
-                                    />
-                                <Label for="item">Exit</Label>
+                                    /> */}
+                                <Label for="item">Entry Date</Label>
                                 <Input
                                     type="date"
-                                    name="date"
+                                    name="entryDate"
                                     id="item"
+                                    onChange={this.onChange}
+                                    />
+                                <Label for="item">Exit Date</Label>
+                                <Input
+                                    type="date"
+                                    name="exitDate"
+                                    id="item"
+                                    onChange={this.onChange}
+                                    />
+                                <Label for="item">Stratgy</Label>
+                                <Input
+                                    type="text"
+                                    name="strategy"
+                                    id="item"
+                                    placeholder="Strategy behind trade"
+                                    onChange={this.onChange}
+                                    />
+                                <Label for="item">W/L</Label>
+                                <Input
+                                    type="text"
+                                    name="winLose"
+                                    id="item"
+                                    placeholder="win/lose"
+                                    onChange={this.onChange}
+                                    />
+                                <Label for="item">Note</Label>
+                                <Input
+                                    type="text"
+                                    name="note"
+                                    id="item"
+                                    placeholder="Addtional notes"
                                     onChange={this.onChange}
                                     />
                                 <Button
                                     color="dark"
                                     style={{marginTop: '2rem'}}
                                     block>
-                                        Add Item</Button>
+                                        Add Trade</Button>
                             </FormGroup>
                         </Form>
                     </ModalBody>

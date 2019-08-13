@@ -46,26 +46,37 @@ class TradeList extends Component{
                <Table className="table" hover>
                    <thead className="thead-light">
                        <tr>
+                           <th>Entry Date</th>
+                           <th>Exit Date</th>
                            <th>Ticker</th>
-                           <th>Date Exit</th>
-                           <th>Entry</th>
-                           <th>Exit</th>
+                           <th># Shares</th>
+                           <th>Entry Price</th>
+                           <th>Exit Price</th>
+                           <th>Strategy</th>
+                           <th>SL Price</th>
                            <th>P/L</th>
                            <th>W/L</th>
+                           <th>Notes</th>
+                           <th></th>
                        </tr>
                    </thead>
                    <tbody>
                 
                         
-                            {items.map(({ _id, ticker, entry, exit, fees, pL, date }) => (
-                                <CSSTransition key={_id} timeout={500} classNames="fade">
+                            {items.map(({ _id, ticker, numShares, entry, exit, stopPrice, pL, entryDate, exitDate, strategy, winLose, note }) => (
+                                <CSSTransition key={_id} timeout={1000} classNames="fade">
                                             <tr>
+                                                <td>{this.reverseDate(entryDate.substring(0,10))}</td>
+                                                <td>{this.reverseDate(exitDate.substring(0,10))}</td>
                                                 <td>{ticker}</td>
-                                                <td>{this.reverseDate(date.substring(0,10))}</td>
+                                                <td>{numShares}</td>
                                                 <td>{entry}</td>
                                                 <td>{exit}</td>
+                                                <td>{strategy}</td>
+                                                <td>{stopPrice}</td>
                                                 <td>{pL}</td>
-                                                <td>{fees}</td>
+                                                <td>{winLose}</td>
+                                                <td>{note}</td>
                                                 <td>       <Button
                                         className="remove-btn"
                                         color="danger"

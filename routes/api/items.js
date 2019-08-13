@@ -30,7 +30,7 @@ router.post('/update/:id', auth, (req, res) => {
 
             trade.save()
                 .then(() => res.json('Trade Updated'))
-                .catch(err => res.status(400).json('Error: '+err))
+                .catch(err => res.status(400).json('Error: '+err ))
         })
 })
 
@@ -40,16 +40,21 @@ router.post('/update/:id', auth, (req, res) => {
 router.post('/', auth,  (req, res) => {
    const newItem = new Item({
     ticker: req.body.ticker,
+    numShares: req.body.numShares,
     entry: req.body.entry,
     exit: req.body.exit,
-    fees: req.body.fees,
+    stopPrice: req.body.stopPrice,
     pL: req.body.pL,
-    date: Date.parse(req.body.date)
+    entryDate: Date.parse(req.body.entryDate),
+    exitDate: Date.parse(req.body.exitDate),
+    strategy: req.body.strategy,
+    winLose: req.body.winLose,
+    note: req.body.note
    });
 
    newItem.save()
     .then(item => res.json(item))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .catch(err => res.status(400).json('Error: ' + err ));
     
 })
 
