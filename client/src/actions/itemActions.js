@@ -22,8 +22,7 @@ export const addItem = item => (dispatch, getState) => {
             type: ADD_ITEM,
             payload: res.data 
         }) )    
-        .catch(err => "damnn")
-        //dispatch(returnErrors(err.response.data, err.response.status)))
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 
     
 }

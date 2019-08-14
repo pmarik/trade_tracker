@@ -3,7 +3,7 @@ import PortfolioValue from './PortfolioValue'
 import Calculator from './Calculator'
 import ShareResult from './ShareResult'
 import { connect } from 'react-redux';
-import { setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem} from '../../actions/watchActions'
+import { setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem, getTotalPortfolio} from '../../actions/watchActions'
 import uuid from 'uuid';
 
 class RiskCalculator extends Component {
@@ -14,6 +14,22 @@ class RiskCalculator extends Component {
         canAfford: false,
         isVisible: false
     }
+
+    componentDidMount(){
+        const { items } = this.props.item;
+        let totalPl = 0;
+
+        if(items.length > 0 ){
+            totalPl = items.reduce((accum, currentVal) => (
+                {pL: accum.pL + currentVal.pL}
+            ));
+
+            this.props.getTotalPortfolio(totalPl.pL);
+          
+        }
+      
+
+    }
     
 
     handleChange = (e) => {
@@ -21,7 +37,7 @@ class RiskCalculator extends Component {
         const value = e.target.value
 
             if (name === "riskPercent"){
-                let newRisk = this.props.portfolio * (value * .01);
+                let newRisk = this.props.totalPortfolio * (value * .01);
                 this.props.setRiskPercent(value, newRisk)
             }
             // else if (name === "portfolio"){
@@ -49,7 +65,7 @@ class RiskCalculator extends Component {
         const totalPrice = totalShares * this.props.buyPrice;
         let canAfford = false; 
 
-        if(totalPrice < this.props.portfolio - 20) {
+        if(totalPrice < this.props.totalPortfolio - 20) {
             canAfford = true;
         }
 
@@ -91,7 +107,7 @@ class RiskCalculator extends Component {
 
         return (
             <div>
-                <PortfolioValue portfolio={this.props.portfolio} riskPercent={this.props.riskPercent} riskDollarValue={this.props.riskDollarValue} handleChange={this.handleChange} /> 
+                <PortfolioValue portfolio={this.props.totalPortfolio} riskPercent={this.props.riskPercent} riskDollarValue={this.props.riskDollarValue} handleChange={this.handleChange} /> 
                 <hr /> 
                 <Calculator handleSubmit={this.handleSubmit} handleChange={this.handleChange} ticker={this.props.ticker} buyPrice={this.props.buyPrice} stopPrice={this.props.stopPrice} calculate={this.calculate} resetCaculator={this.resetCaculator} /> 
                 <hr /> 
@@ -114,10 +130,12 @@ const mapStateToProps = state => ({
     stopPrice: state.watch.stopPrice,
     numShares: state.watch.numShares,
     target: state.watch.target,
-    totalPrice: state.watch.totalPrice
+    totalPrice: state.watch.totalPrice,
+    totalPortfolio: state.watch.totalPortfolio,
+    item: state.item
 })
 
-export default connect(mapStateToProps, {setRiskPercent, setPortfolioValue, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem })(RiskCalculator)
+export default connect(mapStateToProps, {setRiskPercent, setPortfolioValue, getTotalPortfolio, calculateRisk, resetStateCalculator, handleCalculatorChange, addWatchlistItem })(RiskCalculator)
 
 
 

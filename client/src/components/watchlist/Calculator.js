@@ -16,7 +16,7 @@ const Calculator = (props) => {
                     </label>
                     <label className="calculator_label">
                         Stop Price:
-                        <input required pattern="\d*" className="input calculator_input" type="text" value={props.stopPrice} name="stopPrice" onChange={props.handleChange} /> 
+                        <input required className="input calculator_input" type="text" value={props.stopPrice} name="stopPrice" onChange={props.handleChange} /> 
                     
                     </label>
                     <br /> 

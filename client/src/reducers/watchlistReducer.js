@@ -1,8 +1,9 @@
-import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM, DELETE_WATCH_ITEM } from '../actions/types'
+import { SET_RISK_PERCENT, SET_PORTFOLIO_VALUE, CALCULATE_RISK, RESET_CALCULATOR, CALCULATOR_CHANGE, ADD_WATCHLIST_ITEM, DELETE_WATCH_ITEM, GET_TOTAL_PORTFOLIO, GET_RISK_PERCENT } from '../actions/types'
 
 const initialState = {
         watchlist: [],
         portfolio: 2000,
+        totalPortfolio: 0,
         riskPercent: 3,
         riskDollarValue: 60,
         ticker: '',
@@ -22,11 +23,27 @@ export default function(state = initialState, action) {
                 riskDollarValue: action.riskDollars
             }
 
+        // case GET_RISK_PERCENT:
+        //     const updatedRisk = action.riskPercent * action.totalPortfolio
+        //     return {
+        //         riskPercent: updatedRisk
+        //     }
+
         case SET_PORTFOLIO_VALUE:
             return {
                 ...state,
                 portfolio: action.portfolioValue,
-                riskDollarValue: action.riskDollars
+                riskDollarValue: action.riskDollars,
+            }
+
+        case GET_TOTAL_PORTFOLIO:
+
+            const portfolioTotal = parseInt(action.totalPL, 10) + parseInt(state.portfolio, 10)
+            const totalRiskDollar = portfolioTotal * (state.riskPercent * .01)
+            return{
+                ...state,
+                totalPortfolio: portfolioTotal,
+                riskDollarValue: totalRiskDollar
             }
 
         case CALCULATE_RISK: 
@@ -76,6 +93,9 @@ export default function(state = initialState, action) {
                 ...state,
                 watchlist: newWatchlist
             }
+
+
+      
 
         default:
             return state

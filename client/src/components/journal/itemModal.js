@@ -139,15 +139,6 @@ class ItemModal extends Component{
                                     placeholder="Add stop price"
                                     onChange={this.onChange}
                                     />
-                                {/* <Label for="item">P/L</Label>
-                                <Input
-                                    type="number"
-                                    step="0.01"
-                                    name="pL"
-                                    id="item"
-                                    placeholder="Add profit or loss amount"
-                                    onChange={this.onChange}
-                                    /> */}
                                 <Label for="item">Entry Date</Label>
                                 <Input
                                     type="date"
@@ -170,6 +161,8 @@ class ItemModal extends Component{
                                     placeholder="Strategy behind trade"
                                     onChange={this.onChange}
                                     />
+
+                            {/**==========================================**/}
                                 <Label for="item">W/L</Label>
                                 <Input
                                     type="text"
@@ -178,6 +171,9 @@ class ItemModal extends Component{
                                     placeholder="win/lose"
                                     onChange={this.onChange}
                                     />
+                            {/**==========================================**/}
+
+
                                 <Label for="item">Note</Label>
                                 <Input
                                     type="text"
