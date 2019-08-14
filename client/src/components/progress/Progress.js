@@ -42,17 +42,26 @@ class Progress extends Component {
     render() {
         const { items } = this.props.item;
         let totalPL = 0;
+        let winLoseRatio = 0;
 
         //Calculate total PL
         if(items.length > 0){
             totalPL = items.reduce((accum, currentVal) => (
                 {pL: accum.pL + currentVal.pL}
             ));
+
+            let wins = items.filter(trade => {
+                return trade.winLose == "Win"
+            })
+
+            winLoseRatio = (wins.length / items.length) * 100
+
         }
 
         //Calculate total R
 
         //Calculate total Win/Lose ratio
+
 
         return (
             <Container>
@@ -62,8 +71,8 @@ class Progress extends Component {
                 <h3>Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>
                 <h3>Number of Trades: {items.length}</h3>
                 <h3>Total R</h3>
-                <h3>Total P/L ${totalPL.pL}</h3>
-                <h3>W/L %</h3>
+                {totalPL.pL > 0 ? <h3>Total P/L ${totalPL.pL}</h3> : <h3>Total P/L -${Math.abs(totalPL.pL)}</h3> }
+                <h3>W/L: {winLoseRatio}%</h3>
 
                 <label>Original Account Size</label>
                 <input className="portfolioValue input" value={this.props.portfolio} placeholder={this.props.portfolio} name="portfolio" onChange={this.handleChange} size="4" /> 
