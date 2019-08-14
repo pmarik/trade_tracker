@@ -32,26 +32,60 @@ class ItemModal extends Component{
     }
 
     onChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        const name = e.target.name
+
+        if(name == "win"){
+            this.setState({
+                winLose: "win"
+            })
+        }
+        else if(name == "lose"){
+            this.setState({
+                winLose: "lose"
+            })
+        }
+        else{
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
+       
     }
 
 
     onSubmit = e => {
         e.preventDefault();
 
-        let calcPL;
 
+        //initialize win lose values
+        const WIN = "Win"
+        const LOSE = "Lose"
+        
+        let calcPL; // Initialize P/L 
+        let winLoseResult; // Initialize win/lose 
+
+        // Calculate P/L 
         if(parseInt(this.state.entry, 10) > parseInt(this.state.stopPrice, 10)) {
             calcPL = (this.state.exit - this.state.entry) * this.state.numShares;
-            console.log("long " + this.state.ticker)
-            console.log(typeof this.state.entry)
+
+            //Assign win/lose for long position
+            if(this.state.exit > this.state.entry){
+                winLoseResult = WIN;
+            }
+            else{
+                winLoseResult = LOSE
+            }
         }
         else{
             calcPL = (this.state.entry - this.state.exit) * this.state.numShares;
-            console.log("short " + this.state.ticker)
-            console.log(typeof this.state.entry);
+            
+            //Assign win/lose for short position
+            if(this.state.exit < this.state.entry){
+                winLoseResult = WIN;
+            }
+            else{
+                winLoseResult = LOSE
+            }
         }
       
 
@@ -65,7 +99,7 @@ class ItemModal extends Component{
             entryDate: this.state.entryDate,
             exitDate: this.state.exitDate,
             strategy: this.state.strategy,
-            winLose: this.state.winLose,
+            winLose: winLoseResult,
             note: this.state.note
         }
 
@@ -161,19 +195,6 @@ class ItemModal extends Component{
                                     placeholder="Strategy behind trade"
                                     onChange={this.onChange}
                                     />
-
-                            {/**==========================================**/}
-                                <Label for="item">W/L</Label>
-                                <Input
-                                    type="text"
-                                    name="winLose"
-                                    id="item"
-                                    placeholder="win/lose"
-                                    onChange={this.onChange}
-                                    />
-                            {/**==========================================**/}
-
-
                                 <Label for="item">Note</Label>
                                 <Input
                                     type="text"

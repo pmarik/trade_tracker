@@ -112,3 +112,18 @@ align-content: space-between;
   align-items: center;
 }
 
+
+/* ========
+  Item modal Styles
+   ======== */
+
+.radioInput {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.radio_btn{
+  margin-left: 50px;
+}
