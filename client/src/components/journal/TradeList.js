@@ -37,6 +37,8 @@ class TradeList extends Component{
     render(){
 
         const { items } = this.props.item;
+        const itemsCopy = items.slice();
+        const reverseditems = itemsCopy.reverse();
         
         
         return(
@@ -65,7 +67,7 @@ class TradeList extends Component{
                    <tbody>
                 
                         
-                            {items.map(({ _id, ticker, numShares, entry, exit, risk, rMultiple, stopPrice, pL, entryDate, exitDate, strategy, winLose, note }) => (
+                            {reverseditems.map(({ _id, ticker, numShares, entry, exit, risk, rMultiple, stopPrice, pL, entryDate, exitDate, strategy, winLose, note }) => (
                                 <CSSTransition key={_id} timeout={1000} classNames="fade">
                                             <tr>
                                                 <td>{this.reverseDate(entryDate.substring(0,10))}</td>
