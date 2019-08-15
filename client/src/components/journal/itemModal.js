@@ -52,6 +52,26 @@ class ItemModal extends Component{
        
     }
 
+    // Helper function to calculate 1R per trade
+    calcR = (buy, stop, shares) => {
+        if (buy > stop){
+            return (buy - stop) * shares
+        }
+        else{
+            return (stop - buy) * shares
+        }
+    }
+
+    calcRMultiple = (buy, exit, stop, shares, r) => {
+        if( buy > stop ){
+            console.log("buy: " + buy + ", stop: " + stop + ", exit: " + exit + ", shares: " + shares + ", r: " + r)
+            return ((exit - buy) * shares) / r
+        }
+        else{
+            return ((buy - exit) * shares) / r
+        }
+    }
+
 
     onSubmit = e => {
         e.preventDefault();
@@ -63,30 +83,42 @@ class ItemModal extends Component{
         
         let calcPL; // Initialize P/L 
         let winLoseResult; // Initialize win/lose 
+        let r; // initial 1 R risk value per trade
+
 
         // Calculate P/L 
-        if(parseInt(this.state.entry, 10) > parseInt(this.state.stopPrice, 10)) {
+        if(parseFloat(this.state.entry) > parseFloat(this.state.stopPrice)) {
             calcPL = (this.state.exit - this.state.entry) * this.state.numShares;
 
             //Assign win/lose for long position
-            if(this.state.exit > this.state.entry){
+            if(parseFloat(this.state.exit) > parseFloat(this.state.entry)){
                 winLoseResult = WIN;
             }
             else{
                 winLoseResult = LOSE
             }
+
+            //calculate 1R
+            r = this.calcR(parseFloat(this.state.entry,10), parseFloat(this.state.stopPrice), this.state.numShares)
         }
         else{
             calcPL = (this.state.entry - this.state.exit) * this.state.numShares;
             
             //Assign win/lose for short position
-            if(this.state.exit < this.state.entry){
+            if(parseFloat(this.state.exit) < parseFloat(this.state.entry)){
                 winLoseResult = WIN;
             }
             else{
                 winLoseResult = LOSE
             }
+
+            //calculate 1R
+            r = this.calcR(parseFloat(this.state.stopPrice), parseFloat(this.state.entry), parseFloat(this.state.numShares))
         }
+
+
+        //Calculate R multiple with PL
+        const rMultiple = this.calcRMultiple(parseFloat(this.state.entry), parseFloat(this.state.exit), parseFloat(this.state.stopPrice), parseFloat(this.state.numShares), r)
       
 
         const newItem = {
@@ -100,7 +132,10 @@ class ItemModal extends Component{
             exitDate: this.state.exitDate,
             strategy: this.state.strategy,
             winLose: winLoseResult,
-            note: this.state.note
+            note: this.state.note,
+            risk: r,
+            rMultiple: rMultiple
+        
         }
 
 
@@ -155,6 +190,15 @@ class ItemModal extends Component{
                                     placeholder="Add entry price"
                                     onChange={this.onChange}
                                     />
+                                <Label for="item">Stop</Label>
+                                <Input
+                                    type="number"
+                                    step="0.01"
+                                    name="stopPrice"
+                                    id="item"
+                                    placeholder="Add stop price"
+                                    onChange={this.onChange}
+                                    />
                                 <Label for="item">Exit</Label>
                                 <Input
                                     type="number"
@@ -162,15 +206,6 @@ class ItemModal extends Component{
                                     name="exit"
                                     id="item"
                                     placeholder="Add exit price"
-                                    onChange={this.onChange}
-                                    />
-                                <Label for="item">Stop Price</Label>
-                                <Input
-                                    type="number"
-                                    step="0.01"
-                                    name="stopPrice"
-                                    id="item"
-                                    placeholder="Add stop price"
                                     onChange={this.onChange}
                                     />
                                 <Label for="item">Entry Date</Label>

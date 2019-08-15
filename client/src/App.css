@@ -50,6 +50,18 @@
 
 
 /* ========
+  Tradelist Styles
+   ======== */
+th span {
+  display: block;
+}
+
+.table thead th {
+  vertical-align: top;
+}
+
+
+/* ========
   Watchlist Styles
    ======== */
 

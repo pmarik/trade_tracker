@@ -69,7 +69,7 @@ class RiskCalculator extends Component {
             canAfford = true;
         }
 
-        const target = parseInt(this.props.buyPrice) + parseInt(((this.props.buyPrice - this.props.stopPrice) * 2))
+        const target = parseFloat(this.props.buyPrice) + parseFloat(((this.props.buyPrice - this.props.stopPrice) * 2))
        
         if(target < this.props.buyPrice){
             this.setState({

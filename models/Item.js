@@ -31,7 +31,9 @@ const ItemSchema = new Schema({
    exitDate: {type: Date, required: true},
    strategy: { type: String, required: true},
    winLose: {type: String, required: true},
-   note: {type: String, required: true}
+   note: {type: String, required: true},
+   risk: {type: Number, required: true},
+   rMultiple: {type: Number, required: true}
 }, {
     timestamps: true,
 });

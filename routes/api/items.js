@@ -49,7 +49,9 @@ router.post('/', auth,  (req, res) => {
     exitDate: Date.parse(req.body.exitDate),
     strategy: req.body.strategy,
     winLose: req.body.winLose,
-    note: req.body.note
+    note: req.body.note,
+    risk: req.body.risk,
+    rMultiple: req.body.rMultiple
    });
 
    newItem.save()

@@ -4,7 +4,7 @@ const PortfolioValue = (props) => {
     return (
         <div>
 
-            <p>Portfolio Value: {props.portfolio}</p>
+            <p>Portfolio Value: ${props.portfolio.toFixed(2)}</p>
             {/* <label>Portfolio Value $</label> */}
            {/* <input className="portfolioValue input" value={props.portfolio} placeholder={props.portfolio} name="portfolio" onChange={props.handleChange} size="4"/>  */}
            

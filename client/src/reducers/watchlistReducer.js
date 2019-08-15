@@ -38,7 +38,7 @@ export default function(state = initialState, action) {
 
         case GET_TOTAL_PORTFOLIO:
 
-            const portfolioTotal = parseInt(action.totalPL, 10) + parseInt(state.portfolio, 10)
+            const portfolioTotal = parseFloat(action.totalPL) + parseFloat(state.portfolio)
             const totalRiskDollar = portfolioTotal * (state.riskPercent * .01)
             return{
                 ...state,
