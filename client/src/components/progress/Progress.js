@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button } from 'reactstrap';
+import { Container, Button, Table } from 'reactstrap';
 import { connect } from 'react-redux';
 import { setPortfolioValue, getTotalPortfolio } from '../../actions/watchActions'
 
@@ -105,13 +105,28 @@ class Progress extends Component {
                 <h1>Current Portfolio</h1>
         
                 <h3>Account Size: ${this.props.totalPortfolio.toFixed(2)}</h3>
-                <h3>Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>
-                <h3>Number of Trades: {items.length}</h3>
-                <h3>Total R: {totalR.rMultiple.toFixed(2)}</h3>
-                {totalPL.pL > 0 ? <h3>Total P/L ${totalPL.pL.toFixed(2)}</h3> : <h3>Total P/L -${Math.abs(totalPL.pL.toFixed(2))}</h3> }
-                <h3>W/L: {winLoseRatio.toFixed(2)}%</h3>
+                <h3>Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>            
                 <h3>Average Win: ${avgWin.toFixed(2)}</h3>
                 <h3>Average Loss: -${Math.abs(avgLoss).toFixed(2)}</h3>
+
+                <Table>
+                    <thead className="thead-light">
+                        <tr>
+                            <th>Total P/L</th>
+                            <th>Total R's</th>
+                            <th>Win/Lose Ratio</th>
+                            <th>Number of Trades</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {totalPL.pL > 0 ? <td>${totalPL.pL.toFixed(2)}</td> : <td>-${Math.abs(totalPL.pL.toFixed(2))}</td> }
+                            <td>{totalR.rMultiple.toFixed(2)}</td>
+                            <td>{winLoseRatio.toFixed(2)}%</td>
+                            <td>{items.length}</td>
+                        </tr>
+                    </tbody>
+                </Table>
 
                 <label>Original Account Size</label>
                 <input className="portfolioValue input" value={this.props.portfolio} placeholder={this.props.portfolio} name="portfolio" onChange={this.handleChange} size="4" /> 
