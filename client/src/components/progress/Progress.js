@@ -71,10 +71,14 @@ class Progress extends Component {
                     return trade.pL
                 }
             })
-            let totalWins = winners.reduce((accum, currentVal) =>(
-                {pL: accum.pL + currentVal.pL}
-            ))
-            avgWin = totalWins.pL / winners.length
+
+            if(winners.length > 0){
+                let totalWins = winners.reduce((accum, currentVal) =>(
+                    {pL: accum.pL + currentVal.pL}
+                ))
+                avgWin = totalWins.pL / winners.length
+            }
+            
 
             //Calculate average loss
             let losers = items.filter(trade => {
@@ -83,17 +87,22 @@ class Progress extends Component {
                 }
             })
 
-            let totalLosers = losers.reduce((accum, currentVal) => (
-                {pL: accum.pL + currentVal.pL}
-            ))
-            avgLoss = totalLosers.pL / losers.length
+           
+            if(losers.length > 0){
+                let totalLosers = losers.reduce((accum, currentVal) => (
+                    {pL: accum.pL + currentVal.pL}
+                ))
+                avgLoss = totalLosers.pL / losers.length
+            }
+            
+            
         }
        
 
 
         return (
             <Container>
-                <h1>Progress</h1>
+                <h1>Current Portfolio</h1>
         
                 <h3>Account Size: ${this.props.totalPortfolio.toFixed(2)}</h3>
                 <h3>Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>

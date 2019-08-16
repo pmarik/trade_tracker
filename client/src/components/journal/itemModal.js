@@ -130,11 +130,11 @@ class ItemModal extends Component{
             pL: calcPL,
             entryDate: this.state.entryDate,
             exitDate: this.state.exitDate,
-            strategy: this.state.strategy,
             winLose: winLoseResult,
             note: this.state.note,
             risk: r,
-            rMultiple: rMultiple
+            rMultiple: rMultiple,
+            tradeIMG: this.state.tradeIMG
         
         }
 
@@ -222,20 +222,20 @@ class ItemModal extends Component{
                                     id="item"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Stratgy</Label>
-                                <Input
-                                    type="text"
-                                    name="strategy"
-                                    id="item"
-                                    placeholder="Strategy behind trade"
-                                    onChange={this.onChange}
-                                    />
                                 <Label for="item">Note</Label>
                                 <Input
                                     type="text"
                                     name="note"
                                     id="item"
                                     placeholder="Addtional notes"
+                                    onChange={this.onChange}
+                                    />
+                                 <Label for="item">Chart Reference Image</Label>
+                                <Input
+                                    type="text"
+                                    name="tradeIMG"
+                                    id="item"
+                                    placeholder="Link to image of trade"
                                     onChange={this.onChange}
                                     />
                                 <Button

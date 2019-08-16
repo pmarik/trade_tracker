@@ -6,7 +6,7 @@ import { Container, Button, Table } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types'
 import ItemModal from './itemModal';
-
+import NotesModal from './NotesModal'
 
 
 class TradeList extends Component{
@@ -51,11 +51,10 @@ class TradeList extends Component{
                            <th>Entry Date</th>
                            <th>Exit Date</th>
                            <th>Ticker</th>
-                           <th># Shares</th>
+                           <th>#Shares</th>
                            <th>Entry</th>
                            <th>Stop</th>
                            <th>Exit</th>
-                           <th>Strategy</th>
                            <th>1R</th>
                            <th>R Multiple</th>
                            <th>P/L</th>
@@ -67,7 +66,7 @@ class TradeList extends Component{
                    <tbody>
                 
                         
-                            {reverseditems.map(({ _id, ticker, numShares, entry, exit, risk, rMultiple, stopPrice, pL, entryDate, exitDate, strategy, winLose, note }) => (
+                            {reverseditems.map(({ _id, ticker, numShares, entry, exit, risk, rMultiple, stopPrice, pL, entryDate, exitDate, winLose, note, tradeIMG }) => (
                                 <CSSTransition key={_id} timeout={1000} classNames="fade">
                                             <tr>
                                                 <td>{this.reverseDate(entryDate.substring(0,10))}</td>
@@ -77,12 +76,12 @@ class TradeList extends Component{
                                                 <td>${entry}</td>
                                                 <td>${stopPrice}</td>
                                                 <td>${exit}</td>
-                                                <td>{strategy}</td>
                                                 <td>${risk.toFixed(2)}</td>
                                                 {rMultiple >= 0 ? <td>+{rMultiple.toFixed(2)} R</td> : <td>{rMultiple.toFixed(2)} R</td>}
                                                 {pL >= 0 ? <td>${pL.toFixed(2)}</td> : <td>-${Math.abs(pL).toFixed(2)}</td>}
                                                 {winLose == "Win" ? <td style={{color: "#0a9618"}}>{winLose}</td> : <td style={{color: "red"}}>{winLose}</td>}
-                                                <td>{note}</td>
+                                                {/* <td>{note}</td> */}
+                                                <td> <NotesModal ticker={ticker} note={note} entry={entry} exit={exit} winLose={winLose} pL={pL} tradeIMG={tradeIMG}/> </td>
                                                 <td>       <Button
                                         className="remove-btn"
                                         color="danger"

@@ -62,6 +62,16 @@ th span {
 
 
 /* ========
+  Login Styles
+   ======== */
+
+.loginBox{
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+/* ========
   Watchlist Styles
    ======== */
 
@@ -75,17 +85,56 @@ align-content: space-between;
 .calculator{
   width: 40%;
   height: 80vh;
-  background-color: lightgrey;
   display: inline-block;
+  text-align: center;
 }
 
 .alertWatchlist{
   width: 55%;
   height: 80vh;
   top: 0;
-  background-color: lightgreen;
   display: inline-block;
   margin-left: 5%;
+  text-align: center;
+
+}
+
+.watchlistTable {
+  margin: 0 auto;
+}
+
+.watchlistTable thead {
+  background-color: #e9ecef;
+  border-radius: 10px;
+}
+
+.watchlistTable thead tr{
+  border-bottom: 1px solid #343a40 ;
+}
+
+.watchlistTable thead tr th {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.watchlistTable thead tr th:last-child {
+ padding-left: 0;
+ padding-right: 30px;
+ color: #b8757b
+}
+
+
+.watchlistTable tbody{
+  background-color: white;
+
+}
+
+
+
+.boxStyle{
+  background-color: #BDCECE;
+  border-radius: 35px;
+  box-shadow: 3px 3px 5px #343a40;
 }
 
 .inline_p{
@@ -93,9 +142,13 @@ align-content: space-between;
 }
 
 .portfolioValue{
-  width: 3rem;
-  margin-right: 20px;
-  margin-left: 5px;
+  text-align: left;
+  padding-left: 20%;
+}
+
+.portfolioValue p {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .input{
@@ -122,6 +175,15 @@ align-content: space-between;
   flex-direction: column;
   display: flex;
   align-items: center;
+  
+}
+
+.calculatorForm label {
+  margin-top: 10px;
+}
+
+.calculatorForm label input {
+  display: block;
 }
 
 
@@ -139,3 +201,34 @@ align-content: space-between;
 .radio_btn{
   margin-left: 50px;
 }
+
+
+
+/* ========
+  Notes modal Styles
+   ======== */
+
+
+  .notesModel.modal-dialog {
+    max-width: 70% !important;
+  }
+
+  .modal-body img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .modal-body p{
+    display: inline-block;
+    margin-right: 50px;
+  }
+
+  .noteText {
+    border: 1px solid grey;
+    border-radius: 8px;
+  }
+
+  .noteText {
+    padding: 10px;
+  }

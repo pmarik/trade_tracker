@@ -5,17 +5,17 @@ const Calculator = (props) => {
         <div className="calculatorForm">
             <form onSubmit={props.handleSubmit}>
                     <label className="calculator_label">
-                        Ticker:
+                        <strong>Ticker:</strong>
                         <input required className="input calculator_input" type="text" value={props.ticker} name="ticker" onChange={props.handleChange} /> 
                         
                     </label>
                     <label className="calculator_label">
-                        Buy Price:
-                        <input required pattern="\d*" className="input calculator_input" type="text" value={props.buyPrice} name="buyPrice" onChange={props.handleChange} /> 
+                        <strong>Buy Price:</strong>
+                        <input required className="input calculator_input" type="text" value={props.buyPrice} name="buyPrice" onChange={props.handleChange} /> 
                
                     </label>
                     <label className="calculator_label">
-                        Stop Price:
+                        <strong>Stop Price:</strong>
                         <input required className="input calculator_input" type="text" value={props.stopPrice} name="stopPrice" onChange={props.handleChange} /> 
                     
                     </label>

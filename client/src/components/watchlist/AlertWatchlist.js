@@ -15,13 +15,14 @@ class AlertWatchlist extends Component {
     render() {
         return (
             <div>
-                <table>
+                <table className="watchlistTable">
                     <thead>
                         <tr>
                             <th>Ticker</th>
                             <th># Shares</th>
                             <th>Buy</th>
                             <th>Stop</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -35,7 +36,7 @@ class AlertWatchlist extends Component {
                                     <td>{watchBuy}</td>
                                     <td>{watchStop}</td>
                                     <td>
-                                        <button onClick={() => this.deleteItem(watchId)}>X</button>
+                                        <button onClick={() => this.deleteItem(watchId)} style={{backgroundColor: "#b8757b"}}>X</button>
                                     </td>
                                 </tr>
                             </CSSTransition>

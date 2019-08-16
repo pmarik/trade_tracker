@@ -51,7 +51,8 @@ router.post('/', auth,  (req, res) => {
     winLose: req.body.winLose,
     note: req.body.note,
     risk: req.body.risk,
-    rMultiple: req.body.rMultiple
+    rMultiple: req.body.rMultiple,
+    tradeIMG: req.body.tradeIMG
    });
 
    newItem.save()

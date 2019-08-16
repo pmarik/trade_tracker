@@ -39,37 +39,11 @@ class AppNavbar extends Component {
         render() {
             const { isAuthenticated, user } = this.props.auth;
 
-            /*
-            const authLinks = (
-                <Fragment>
-                    <NavItem>
-                        <span className="navbar-text mr-3">
-                            <strong>{ user ? `User ${user.name}` : '' }</strong>
-                        </span>
-                    </NavItem>
-                    <NavItem>
-                         <Logout /> 
-                    </NavItem>
-                </Fragment>
-            )
-            */
 
             const logoutButton = (
                 <a onClick={this.handleLogout} className="logout-btn">LOGOUT</a>
             )
 
-            /*
-            const guestLinks = (
-                <Fragment>
-                    <NavItem>
-                        <RegisterModal/>
-                    </NavItem>
-                    <NavItem>
-                        <LoginModal/>
-                    </NavItem>
-                </Fragment>
-            );
-            */
 
 
         

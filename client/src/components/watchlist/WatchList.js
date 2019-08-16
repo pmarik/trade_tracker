@@ -9,13 +9,13 @@ export default class WatchList extends Component {
         return (
             <Container className="flexSplit">
                 
-                <div className="calculator">
+                <div className="calculator boxStyle">
                     <h1>Risk Calculator</h1>
                     <RiskCalculator /> 
                 </div>
                 
             
-                <div className="alertWatchlist">
+                <div className="alertWatchlist boxStyle">
                     <h1>Watchlist</h1>
                     <AlertWatchlist /> 
                 </div>

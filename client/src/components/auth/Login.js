@@ -95,11 +95,11 @@ class Login extends Component{
         return (
             
             <Fragment>
-                <div style={styles.outer}>
+                <div style={styles.outer} >
                     <h1 style={styles}>Trade Tracker</h1>
 
                     <Container>
-                        <Jumbotron >
+                        <Jumbotron className="boxStyle loginBox" >
                         
                         <h1 style={styles.inner}>Login or Register</h1>
 
