@@ -103,9 +103,8 @@ class Progress extends Component {
         return (
             <Container>
                 <h1>Current Portfolio</h1>
-        
-                <h3>Account Size: ${this.props.totalPortfolio.toFixed(2)}</h3>
-                <h3>Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>            
+                <h3 className="yellow_underline">Account Size: ${this.props.totalPortfolio.toFixed(2)}</h3>
+                <h3 className="yellow_underline">Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>            
                 <h3>Average Win: ${avgWin.toFixed(2)}</h3>
                 <h3>Average Loss: -${Math.abs(avgLoss).toFixed(2)}</h3>
 
@@ -113,7 +112,7 @@ class Progress extends Component {
                     <thead className="thead-light">
                         <tr>
                             <th>Total P/L</th>
-                            <th>Total R's</th>
+                            <th>Total R's</th> 
                             <th>Win/Lose Ratio</th>
                             <th>Number of Trades</th>
                         </tr>
@@ -129,7 +128,7 @@ class Progress extends Component {
                 </Table>
 
                 <label>Original Account Size</label>
-                <input className="portfolioValue input" value={this.props.portfolio} placeholder={this.props.portfolio} name="portfolio" onChange={this.handleChange} size="4" /> 
+                <input className="portfolioValue input" value={this.props.portfolio} placeholder={this.props.portfolio} name="portfolio" onChange={this.handleChange} size="1" /> 
             </Container>
         )
     }

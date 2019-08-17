@@ -162,9 +162,9 @@ class ItemModal extends Component{
 
                     <ModalHeader toggle={this.toggle}>Add To Trades</ModalHeader>
                     <ModalBody>
-                        <Form onSubmit={this.onSubmit}>
-                            <FormGroup>
-                                <Label for="item">Ticker</Label>
+                        <Form onSubmit={this.onSubmit} >
+                            <FormGroup className="itemModal">
+                                <Label for="item"><i>Ticker</i></Label>
                                 <Input
                                     type="text"
                                     name="ticker"
@@ -172,7 +172,7 @@ class ItemModal extends Component{
                                     placeholder="Add ticker name"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item"># Shares</Label>
+                                <Label for="item"><i>Number of Shares</i></Label>
                                 <Input
                                     type="number"
                                     step="1"
@@ -181,7 +181,7 @@ class ItemModal extends Component{
                                     placeholder="Add number of shares"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Entry</Label>
+                                <Label for="item"><i>Entry</i></Label>
                                 <Input
                                     type="number"
                                     step="0.01"
@@ -190,7 +190,7 @@ class ItemModal extends Component{
                                     placeholder="Add entry price"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Stop</Label>
+                                <Label for="item"><i>Stop</i></Label>
                                 <Input
                                     type="number"
                                     step="0.01"
@@ -199,7 +199,7 @@ class ItemModal extends Component{
                                     placeholder="Add stop price"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Exit</Label>
+                                <Label for="item"><i>Exit</i></Label>
                                 <Input
                                     type="number"
                                     step="0.01"
@@ -208,29 +208,31 @@ class ItemModal extends Component{
                                     placeholder="Add exit price"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Entry Date</Label>
+                                <Label for="item"><i>Entry Date</i></Label>
                                 <Input
                                     type="date"
                                     name="entryDate"
                                     id="item"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Exit Date</Label>
+                                <Label for="item"><i>Exit Date</i></Label>
                                 <Input
                                     type="date"
                                     name="exitDate"
                                     id="item"
                                     onChange={this.onChange}
                                     />
-                                <Label for="item">Note</Label>
-                                <Input
-                                    type="text"
+
+
+                                <Label for="item"><i>Note</i></Label>
+                                <textarea 
+                                    rows="4"
                                     name="note"
-                                    id="item"
-                                    placeholder="Addtional notes"
-                                    onChange={this.onChange}
-                                    />
-                                 <Label for="item">Chart Reference Image</Label>
+                                    placeholder="Additional notes..."
+                                    onChange={this.onChange}></textarea>
+
+
+                                 <Label for="item"><i>Chart Reference Image</i></Label>
                                 <Input
                                     type="text"
                                     name="tradeIMG"

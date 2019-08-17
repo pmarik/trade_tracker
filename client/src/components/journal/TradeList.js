@@ -43,7 +43,7 @@ class TradeList extends Component{
         
         return(
            <Container>
-               <h3>Trade Journal</h3>
+               <h1>Trade Journal</h1>
                <ItemModal /> 
                <Table className="table" hover>
                    <thead className="thead-light">

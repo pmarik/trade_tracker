@@ -4,9 +4,9 @@ const ShareResult = (props) => {
 
     let afford = 
         <div>
-            <h3>Number of shares going {props.isLong ? "LONG" : "SHORT"}: {props.numShares} for ${props.totalPrice}</h3>
-            <h3>{props.isLong ? "Sell stop" : "Buy stop"} {props.stopPrice}</h3>
-            <h3>{props.isLong ? "Sell limit" : "Buy limit"} {props.target}</h3>
+            <p><strong>Number of shares going {props.isLong ? "LONG" : "SHORT"}: {props.numShares} for ${props.totalPrice}</strong></p>
+            <p><strong>{props.isLong ? "Sell stop" : "Buy stop"} {props.stopPrice}</strong></p>
+            <p><strong>{props.isLong ? "Sell limit" : "Buy limit"} {props.target}</strong></p>
         </div>
 
     let notAfford = 

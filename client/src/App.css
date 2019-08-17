@@ -40,7 +40,7 @@
 
 .nav-item{
   padding: 10px 10px 10px 10px;
-  color: rgb(165, 197, 165)
+  color: #F8C992;
 }
 
 .nav-item:hover{
@@ -143,7 +143,9 @@ align-content: space-between;
 
 .portfolioValue{
   text-align: left;
-  padding-left: 20%;
+ padding-left: 10px;
+ padding-right: 10px;
+ margin: 10px;
 }
 
 .portfolioValue p {
@@ -167,8 +169,12 @@ align-content: space-between;
 }
 
 .calculator_label{
-  display: block;
+  display: inline-block;
   margin: 0 auto;
+}
+
+.calcItem {
+  display: block;
 }
 
 .calculatorForm{
@@ -184,6 +190,13 @@ align-content: space-between;
 
 .calculatorForm label input {
   display: block;
+}
+
+/* ========
+  Progress Styles
+   ======== */
+.yellow_underline {
+  border-bottom: 2px solid #F8C992;
 }
 
 
@@ -202,7 +215,23 @@ align-content: space-between;
   margin-left: 50px;
 }
 
+textarea {
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+}
 
+.itemModal.form-group label {
+  margin-bottom: 0;
+}
+
+.itemModal.form-group input {
+  margin-bottom: .5rem;
+}
+
+.itemModal.form-group textarea {
+  margin-bottom: .5rem;
+}
 
 /* ========
   Notes modal Styles
