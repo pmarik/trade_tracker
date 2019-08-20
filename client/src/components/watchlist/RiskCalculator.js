@@ -183,7 +183,7 @@ return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
 
 
         return (
-            <div>
+            <div className="boxStyle">
                 <PortfolioValue portfolio={this.props.totalPortfolio} riskPercent={this.props.riskPercent} riskDollarValue={this.props.riskDollarValue} numDayTrades={this.state.numDayTrades} handleChange={this.handleChange} /> 
                 <hr /> 
                 <Calculator handleSubmit={this.handleSubmit} handleChange={this.handleChange} ticker={this.props.ticker} buyPrice={this.props.buyPrice} stopPrice={this.props.stopPrice} calculate={this.calculate} resetCaculator={this.resetCaculator} /> 

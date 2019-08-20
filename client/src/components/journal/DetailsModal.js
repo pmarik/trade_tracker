@@ -50,9 +50,9 @@ class DetailsModal extends Component{
             <div>
 
                 <Button
-                    color="dark"
+                    className="view-btn"
                     onClick={this.toggle}>
-                   VIEW</Button> 
+                   <strong>VIEW</strong></Button> 
                 
                
 

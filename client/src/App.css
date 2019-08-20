@@ -35,12 +35,12 @@
 }
 
 .active {
-  border-bottom: 3px solid white
+  border-bottom: 3px solid #E2953B
 }
 
 .nav-item{
   padding: 10px 10px 10px 10px;
-  color: #F8C992;
+  color: #B3C7D2;
 }
 
 .nav-item:hover{
@@ -61,6 +61,40 @@ th span {
 }
 
 
+.table thead th:first-child{
+  border-radius: 27px 0 0 0;
+}
+
+.table thead th:last-child{
+  border-radius: 0 27px 0 0;
+}
+
+table.table {
+  border: 1px solid #E2953B;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 29px;
+  border-collapse: separate;
+}
+
+
+/* ========
+  Tradelist Styles
+   ======== */
+
+   .view-btn {
+    background-color: #B3C7D2;
+    color: #262B3E;
+    height: 30px;
+    text-align: center;
+    vertical-align: center;
+   }
+
+    .view-btn.btn{
+     
+     padding: 0 .5rem ;
+   } 
+
+
 /* ========
   Login Styles
    ======== */
@@ -68,17 +102,44 @@ th span {
 .loginBox{
   width: 50%;
   margin: 0 auto;
+  background-color: #262B3E;
 }
 
 .loginForm .form-control {
-  width: 60%;
+  width: 55%;
   margin: 0 auto;
+  background: #B3C7D2;
 }
 
 .loginForm .btn-block {
   width: 25%;
   margin: 0 auto;
 }
+
+.loginForm label {
+  margin-bottom: .2rem;
+}
+
+.loginForm.form-group {
+  margin-bottom: 0;
+  color: grey;
+  margin-top: 16px;
+}
+
+
+
+#login-btn {
+  background-color: #E2953B;
+  color: #343A40;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+#login-btn:hover{
+  color: white;
+  border: solid 1px white;
+}
+
 
 
 /* ========
@@ -94,14 +155,14 @@ align-content: space-between;
 
 .calculator{
   width: 40%;
-  height: 80vh;
+  height: 73vh;
   display: inline-block;
   text-align: center;
 }
 
 .alertWatchlist{
   width: 55%;
-  height: 80vh;
+  height: 73vh;
   top: 0;
   display: inline-block;
   margin-left: 5%;
@@ -142,9 +203,10 @@ align-content: space-between;
 
 
 .boxStyle{
-  background-color: #BDCECE;
   border-radius: 35px;
   box-shadow: 3px 3px 5px #343a40;
+  border: 1px solid #E2953B;
+  height: 100%;
 }
 
 .inline_p{
@@ -192,7 +254,6 @@ align-content: space-between;
   display: flex;
   align-items: center;
   width: 100%;
-  
 }
 
 .calculatorForm label {

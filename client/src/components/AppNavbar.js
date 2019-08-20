@@ -41,7 +41,7 @@ class AppNavbar extends Component {
 
 
             const logoutButton = (
-                <a onClick={this.handleLogout} className="logout-btn">LOGOUT</a>
+                <a onClick={this.handleLogout} className="logout-btn">Logout</a>
             )
 
 

@@ -14,7 +14,7 @@ class AlertWatchlist extends Component {
 
     render() {
         return (
-            <div>
+            <div className="boxStyle">
                 <table className="watchlistTable">
                     <thead>
                         <tr>

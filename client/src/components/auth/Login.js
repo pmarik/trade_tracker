@@ -84,10 +84,23 @@ class Login extends Component{
         let styles = {
             outer: {
                 textAlign: "center",
-                marginTop: "5%"
+                marginTop: "7%"
             },
             inner: {
                 textAlign: "center",
+                color: "#F2F2F2",
+                marginBottom: 0,
+                marginTop: 20
+            },
+            logo: {
+                marginTop: 0,
+                color: "#FFF",
+            },
+            hr: {
+                width: "60%",
+                height: "1px",
+                margin: "0 auto",
+                backgroundColor: "#E2953B"
             }
             
         }
@@ -96,12 +109,13 @@ class Login extends Component{
             
             <Fragment>
                 <div style={styles.outer} >
-                    <h1 style={styles}>Trade Tracker</h1>
+                   
 
                     <Container>
                         <Jumbotron className="boxStyle loginBox" >
-                        
-                        <h1 style={styles.inner}>Login</h1>
+                        <h1 style={styles.logo}>Trade Tracker</h1>
+                        <hr style={styles.hr}/>
+                        <h5 style={styles.inner}>Login or Register</h5>
 
                         { this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 
@@ -129,7 +143,7 @@ class Login extends Component{
                                         onChange={this.onChange}
                                         />
                                     <Button
-                                        color="dark"
+                                        id="login-btn"
                                         style={{marginTop: '2rem'}}
                                         block>
                                             Login</Button>
