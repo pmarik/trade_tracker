@@ -15,6 +15,10 @@ export const getItems = () => dispatch => {
     .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 }
 
+
+
+
+
 export const addItem = item => (dispatch, getState) => {
     axios
 .post('/api/items', item, tokenConfig(getState))
@@ -36,6 +40,8 @@ export const deleteItem = (id) => (dispatch, getState) => {
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 
 }
+
+//export const updateItem = 
 
 
 

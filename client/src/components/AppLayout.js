@@ -6,6 +6,7 @@ import AppNavBar from "./AppNavbar"
 import TradeList from './journal/TradeList';
 import Progress from './progress/Progress'
 import Watchlist from "./watchlist/WatchList";
+import UpdateModal from './journal/updateModal'
 
 
 const AppLayout = () => {
@@ -17,6 +18,7 @@ const AppLayout = () => {
         <Route path="/journal" component={TradeList} />
         <Route path="/watchlist" component={Watchlist} />
         <Route path="/progress" component={Progress} /> 
+        <Route path="/update" component={UpdateModal} />
     </Router>
  
   );

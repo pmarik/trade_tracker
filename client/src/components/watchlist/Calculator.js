@@ -3,8 +3,8 @@ import {Button} from 'reactstrap'
 
 const Calculator = (props) => {
     return (
-        <div className="calculatorForm">
-            <form onSubmit={props.handleSubmit}>
+        <div>
+            <form onSubmit={props.handleSubmit} className="calculatorForm">
                 <div className="calcItem">
                     <label className="calculator_label">
                         <strong>Ticker:</strong></label>
@@ -24,10 +24,10 @@ const Calculator = (props) => {
                 </div>
                    
                     <br /> 
-                    <Button type='submit' onClick={props.calculate}>Calculate</Button>
+                    <Button type='submit' className="calc-btn" onClick={props.calculate}>Calculate</Button>
             </form>
 
-                <Button type='submit' onClick={props.resetCaculator}>Reset</Button>
+                <Button type='submit' className="reset-btn" onClick={props.resetCaculator}>Reset</Button>
         </div>
     )
 }

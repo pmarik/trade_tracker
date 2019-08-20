@@ -6,10 +6,15 @@ import { Container, Button, Table } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types'
 import ItemModal from './itemModal';
-import NotesModal from './NotesModal'
+import DetailsModal from './DetailsModal'
+import UpdateModal from './updateModal';
+import DeleteModal from './DeleteModal'
 
 
 class TradeList extends Component{
+
+
+
    static propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
@@ -32,6 +37,8 @@ class TradeList extends Component{
         return `${month}-${day}-${yr}`;
      
     }
+
+  
     
 
     render(){
@@ -59,7 +66,7 @@ class TradeList extends Component{
                            <th>R Multiple</th>
                            <th>P/L</th>
                            <th>W/L</th>
-                           <th>Notes</th>
+                           <th>Details</th>
                            <th></th>
                        </tr>
                    </thead>
@@ -80,14 +87,24 @@ class TradeList extends Component{
                                                 {rMultiple >= 0 ? <td>+{rMultiple.toFixed(2)} R</td> : <td>{rMultiple.toFixed(2)} R</td>}
                                                 {pL >= 0 ? <td>${pL.toFixed(2)}</td> : <td>-${Math.abs(pL).toFixed(2)}</td>}
                                                 {winLose == "Win" ? <td style={{color: "#0a9618"}}>{winLose}</td> : <td style={{color: "red"}}>{winLose}</td>}
-                                                {/* <td>{note}</td> */}
-                                                <td> <NotesModal ticker={ticker} note={note} entry={entry} exit={exit} winLose={winLose} pL={pL} tradeIMG={tradeIMG}/> </td>
-                                                <td>       <Button
-                                        className="remove-btn"
-                                        color="danger"
-                                        size="sm"
-                                        onClick={this.onDeleteClick.bind(this, _id)}
-                                        >&times;</Button></td>
+                                                <td> <DetailsModal
+                                                    _id={_id}
+                                                    entryDate={this.reverseDate(entryDate.substring(0,10))}
+                                                    exitDate={this.reverseDate(exitDate.substring(0,10))}
+                                                    ticker={ticker} 
+                                                    numShares={numShares}
+                                                    note={note} 
+                                                    entry={entry} 
+                                                    exit={exit} 
+                                                    stopPrice={stopPrice}
+                                                    winLose={winLose} 
+                                                    pL={pL} 
+                                                    tradeIMG={tradeIMG}
+                                                    /> </td>
+                                                <td> <DeleteModal
+                                                        ticker={ticker}
+                                                        delete={this.onDeleteClick.bind(this, _id)}/>
+                                                </td>
                                             </tr> 
                                        
 

@@ -70,6 +70,16 @@ th span {
   margin: 0 auto;
 }
 
+.loginForm .form-control {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.loginForm .btn-block {
+  width: 25%;
+  margin: 0 auto;
+}
+
 
 /* ========
   Watchlist Styles
@@ -181,11 +191,17 @@ align-content: space-between;
   flex-direction: column;
   display: flex;
   align-items: center;
+  width: 100%;
   
 }
 
 .calculatorForm label {
   margin-top: 10px;
+}
+
+.btn.btn-secondary.calc-btn{
+  position: relative;
+  left: 0 !important;
 }
 
 .calculatorForm label input {
@@ -234,11 +250,11 @@ textarea {
 }
 
 /* ========
-  Notes modal Styles
+  Details modal Styles
    ======== */
 
 
-  .notesModel.modal-dialog {
+  .detailsModal.modal-dialog {
     max-width: 70% !important;
   }
 

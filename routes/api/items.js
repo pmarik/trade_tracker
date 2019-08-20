@@ -15,23 +15,33 @@ router.get('/', (req, res) => {
     
 })
 
+
 // @route UPDATE api/items
 // @desc Update A Item
 // @access Public
 router.post('/update/:id', auth, (req, res) => {
     Item.findById(req.params.id)
         .then(trade => {
-            trade.ticker = req.body.ticker;
-            trade.entry = req.body.entry;
-            trade.exit = req.body.exit;
-            trade.fees = req.body.fees;
-            trade.pL = req.body.pL;
-            trade.date = Date.parse(req.body.date);
+            trade.ticker = req.body.ticker,
+            trade.numShares = req.body.numShares,
+            trade.entry = req.body.entry,
+            trade.exit = req.body.exit,
+            trade.stopPrice = req.body.stopPrice,
+            trade.pL = req.body.pL,
+            trade.entryDate = Date.parse(req.body.entryDate),
+            trade.exitDate = Date.parse(req.body.exitDate),
+            trade.strategy = req.body.strategy,
+            trade.winLose = req.body.winLose,
+            trade.note = req.body.note,
+            trade.risk = req.body.risk,
+            trade.rMultiple = req.body.rMultiple,
+            trade.tradeIMG = req.body.tradeIMG
 
             trade.save()
                 .then(() => res.json('Trade Updated'))
                 .catch(err => res.status(400).json('Error: '+err ))
         })
+        .catch(err => res.statusMessage(400).json('Error: ' + err))
 })
 
 // @route POST api/items
@@ -47,7 +57,6 @@ router.post('/', auth,  (req, res) => {
     pL: req.body.pL,
     entryDate: Date.parse(req.body.entryDate),
     exitDate: Date.parse(req.body.exitDate),
-    strategy: req.body.strategy,
     winLose: req.body.winLose,
     note: req.body.note,
     risk: req.body.risk,
@@ -61,6 +70,11 @@ router.post('/', auth,  (req, res) => {
     
 })
 
+
+
+// @route GET api/item
+// @desc Get A Item
+// @access Public
 router.route('/:id').get((req, res) => {
     Item.findById(req.params.id)
     .then(trade => res.json(trade))

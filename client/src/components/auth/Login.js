@@ -101,12 +101,12 @@ class Login extends Component{
                     <Container>
                         <Jumbotron className="boxStyle loginBox" >
                         
-                        <h1 style={styles.inner}>Login or Register</h1>
+                        <h1 style={styles.inner}>Login</h1>
 
                         { this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
 
                             <Form onSubmit={this.onSubmit}>
-                                <FormGroup>
+                                <FormGroup className="loginForm">
                                     
 
                                     <Label for="email">Email</Label>
