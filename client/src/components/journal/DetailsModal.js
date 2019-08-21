@@ -47,7 +47,7 @@ class DetailsModal extends Component{
         const negativePL = (<span>-${Math.abs(this.props.pL).toFixed(2)}</span>)
 
         return (
-            <div>
+            <React.Fragment>
 
                 <Button
                     className="view-btn"
@@ -84,7 +84,7 @@ class DetailsModal extends Component{
                     </ModalBody>
                </Modal> 
                
-            </div>
+            </React.Fragment>
         )
     }
 }
