@@ -39,13 +39,14 @@ const ShareResult = (props) => {
             if(matchTicker.length > 0){
 
                     const today = new Date();
+
                 
                     //let lasttraded = datediff(parseDate(findPrevTrade[findPrevTrade.length - 1].exitDate), today)
                     let lastTraded = datediff(parseDate(matchTicker[matchTicker.length - 1].exitDate), today)
-
+                  
                     const viewLastTrade = matchTicker[matchTicker.length - 1];
 
-                    prevTrade = (<p>You last traded this stock {lastTraded - 1} days ago <DetailsModal 
+                    prevTrade = (<p>You last traded this stock {lastTraded - 1} day{lastTraded - 1 != 1 && "s"} ago <DetailsModal 
                                                     _id={viewLastTrade._id}
                                                     entryDate={reverseDate(viewLastTrade.entryDate.substring(0,10))}
                                                     exitDate={reverseDate(viewLastTrade.exitDate.substring(0,10))}
@@ -70,7 +71,7 @@ const ShareResult = (props) => {
 
     let afford = 
         <div>
-            <p><strong>Number of shares going {props.isLong ? (<p style={{color: "green", display: "inline-block"}}>LONG</p>) : (<p style={{color: "red", display: "inline-block"}}>SHORT</p>)}: <h4 style={{display: "inline-block"}}><b>{props.numShares}</b></h4> for <h4 style={{display: "inline-block"}}><b>${props.totalPrice}</b></h4></strong></p>
+            <p><strong>Number of shares going {props.isLong ? (<p style={{color: "green", display: "inline-block", marginBottom: "0px"}}>LONG</p>) : (<p style={{color: "red", display: "inline-block", marginBottom: "0px"}}>SHORT</p>)}: <h4 style={{display: "inline-block", marginBottom: "0px"}}><b>{props.numShares}</b></h4> for <h4 style={{display: "inline-block", marginBottom: "0px"}}><b>${props.totalPrice.toFixed(2)}</b></h4></strong></p>
             <p><strong>{props.isLong ? "Sell stop" : "Buy stop"} ${props.stopPrice}</strong></p>
             
         </div>

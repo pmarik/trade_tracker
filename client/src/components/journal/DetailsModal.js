@@ -52,7 +52,7 @@ class DetailsModal extends Component{
                 <Button
                     className="view-btn"
                     onClick={this.toggle}>
-                   <strong>VIEW</strong></Button> 
+                   <i>VIEW</i></Button> 
                 
                
 

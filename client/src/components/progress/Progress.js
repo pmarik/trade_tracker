@@ -98,37 +98,40 @@ class Progress extends Component {
             
         }
        
-
+        const styles = {
+            pTitle: {
+                color: "rgba(38, 43, 62, 0.6)",
+                marginBottom: "0"
+            },
+            pValue: {
+                color: "#262B3E",
+                fontSize: "1.5rem",
+                fontWeight: "bold"
+            }
+        }
 
         return (
             <Container>
                 <h1>Current Portfolio</h1>
-                <h3 className="yellow_underline">Account Size: ${this.props.totalPortfolio.toFixed(2)}</h3>
-                <h3 className="yellow_underline">Risk Per Trade: {this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size.</h3>            
-                <h3>Average Win: ${avgWin.toFixed(2)}</h3>
-                <h3>Average Loss: -${Math.abs(avgLoss).toFixed(2)}</h3>
+                <div className="progressWrapper">
+                    <div className="progressRow yellow_underline">
+                        <div><p style={styles.pTitle}>Account Size</p><p style={styles.pValue}>${this.props.totalPortfolio.toFixed(2)}</p></div>
+                        <div><p style={styles.pTitle}>Total P/L</p><p style={styles.pValue}>{totalPL.pL > 0 ? <td>${totalPL.pL.toFixed(2)}</td> : <td>-${Math.abs(totalPL.pL.toFixed(2))}</td> }</p></div>
+                        <div><p style={styles.pTitle}>Number of Trades</p><p style={styles.pValue}>{items.length}</p></div>
+                        <div><p style={styles.pTitle}>Win/Lose Ratio</p><p style={styles.pValue}>{winLoseRatio.toFixed(2)}%</p></div>
+                    </div>
 
-                <Table>
-                    <thead className="thead-light">
-                        <tr>
-                            <th>Total P/L</th>
-                            <th>Total R's</th> 
-                            <th>Win/Lose Ratio</th>
-                            <th>Number of Trades</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {totalPL.pL > 0 ? <td>${totalPL.pL.toFixed(2)}</td> : <td>-${Math.abs(totalPL.pL.toFixed(2))}</td> }
-                            <td>{totalR.rMultiple.toFixed(2)}</td>
-                            <td>{winLoseRatio.toFixed(2)}%</td>
-                            <td>{items.length}</td>
-                        </tr>
-                    </tbody>
-                </Table>
-
-                <label>Original Account Size</label>
-                <input className="portfolioValue input" value={this.props.portfolio} placeholder={this.props.portfolio} name="portfolio" onChange={this.handleChange} size="1" /> 
+                    <div className="progressRow yellow_underline">
+                        <div><p style={styles.pTitle}>Average Win</p><p style={styles.pValue}>${avgWin.toFixed(2)}</p></div>
+                        <div><p style={styles.pTitle}>Average Loss</p><p style={styles.pValue}>-${Math.abs(avgLoss).toFixed(2)}</p></div>
+                        <div><p style={styles.pTitle}>Average Risk Per Trade</p><p style={styles.pValue}>{this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size</p></div>
+                    </div>
+                    
+                    <div>
+                        <label style={{display: "inline"}}>Original Account Size $</label>
+                        <input className="portfolioValue input" value={this.props.portfolio} placeholder={this.props.portfolio} name="portfolio" onChange={this.handleChange} size="1" /> 
+                    </div>
+                </div>
             </Container>
         )
     }

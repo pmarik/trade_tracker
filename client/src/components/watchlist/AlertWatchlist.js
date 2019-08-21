@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteWatchItem } from '../../actions/watchActions'
 import { CSSTransition } from 'react-transition-group';
+import {Button } from 'reactstrap'
 
 
 class AlertWatchlist extends Component {
@@ -36,7 +37,7 @@ class AlertWatchlist extends Component {
                                     <td>{watchBuy}</td>
                                     <td>{watchStop}</td>
                                     <td>
-                                        <button onClick={() => this.deleteItem(watchId)} style={{backgroundColor: "#b8757b"}}>X</button>
+                                        <Button onClick={() => this.deleteItem(watchId)} className="remove-btn" color="danger" size="sm">&times;</Button>
                                     </td>
                                 </tr>
                             </CSSTransition>

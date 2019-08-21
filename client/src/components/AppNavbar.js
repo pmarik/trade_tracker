@@ -50,7 +50,7 @@ class AppNavbar extends Component {
 
             return ( 
             <div>
-                <Navbar color="dark" dark expand="sm" className="mb-5">
+                <Navbar expand="sm" className="mb-5 navBar">
                     <div className="container">
                         <NavbarBrand className="nav-brand">Trade Tracker</NavbarBrand>
                         <NavLink to="/journal" className="nav-item" component={TradeList}>Journal</NavLink>

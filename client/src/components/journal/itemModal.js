@@ -150,7 +150,7 @@ class ItemModal extends Component{
 
                 { this.props.isAuthenticated ? <Button
                     color="dark"
-                    style={{marginBottom: '2rem'}}
+                    style={{marginBottom: '1.3rem'}}
                     onClick={this.toggle}>
                     
                     Add Trade</Button> : <h4 className="mb-3 ml-4">Please log in to manage items</h4> }

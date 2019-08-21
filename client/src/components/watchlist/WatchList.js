@@ -10,13 +10,13 @@ export default class WatchList extends Component {
             <Container className="flexSplit">
                 
                 <div className="calculator">
-                    <h1>Risk Calculator</h1>
+                    <h1 style={{marginBottom: "0.5rem"}}>Risk Calculator</h1>
                     <RiskCalculator /> 
                 </div>
                 
             
                 <div className="alertWatchlist">
-                    <h1>Watchlist</h1>
+                    <h1 style={{marginBottom: "0.5rem"}}>Watchlist</h1>
                     <AlertWatchlist /> 
                 </div>
             </Container>

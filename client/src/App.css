@@ -1,3 +1,6 @@
+.h1, h1 {
+  font-size: 2rem;
+}
 .remove-btn {
   margin-right: 0.5rem;
 }
@@ -23,6 +26,14 @@
 
 .nav-brand {
   color: white !important;
+}
+
+.navBar {
+  background: #262B3E;
+}
+
+.mb-5.navBar {
+  margin-bottom: 2.2rem !important;
 }
 
 .logout-btn {
@@ -82,8 +93,8 @@ table.table {
    ======== */
 
    .view-btn {
-    background-color: #B3C7D2;
-    color: #262B3E;
+    background-color: #6c757d;
+    color: #FFF;
     height: 30px;
     text-align: center;
     vertical-align: center;
@@ -156,6 +167,7 @@ align-content: space-between;
 .calculator{
   width: 40%;
   height: 73vh;
+  min-height: 530px;
   display: inline-block;
   text-align: center;
 }
@@ -163,6 +175,7 @@ align-content: space-between;
 .alertWatchlist{
   width: 55%;
   height: 73vh;
+  min-height: 530px;
   top: 0;
   display: inline-block;
   margin-left: 5%;
@@ -171,7 +184,7 @@ align-content: space-between;
 }
 
 .watchlistTable {
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .watchlistTable thead {
@@ -192,6 +205,10 @@ align-content: space-between;
  padding-left: 0;
  padding-right: 30px;
  color: #b8757b
+}
+
+.watchlistTable tr {
+  border-bottom: 1px solid #B3C7D2;
 }
 
 
@@ -218,6 +235,7 @@ align-content: space-between;
  padding-left: 10px;
  padding-right: 10px;
  margin: 10px;
+
 }
 
 .portfolioValue p {
@@ -235,18 +253,30 @@ align-content: space-between;
   margin-left: 5px;
 }
 
+
+
+/* ========
+  Calculator Styles
+   ======== */
+
 .calculator_input{
-  margin-left: 10px;
+  height: 2rem;
   width: 5.5rem;
+
 }
 
 .calculator_label{
-  display: inline-block;
-  margin: 0 auto;
+  width: 100px;
+  text-align: center;
+  
 }
 
 .calcItem {
-  display: block;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 43%;
 }
 
 .calculatorForm{
@@ -260,7 +290,7 @@ align-content: space-between;
   margin-top: 10px;
 }
 
-.btn.btn-secondary.calc-btn{
+.btn.btn-secondary.calc-btn{ 
   position: relative;
   left: 0 !important;
 }
@@ -269,9 +299,25 @@ align-content: space-between;
   display: block;
 }
 
+.reset-btn {
+  margin-top: 10px;
+}
+
 /* ========
   Progress Styles
    ======== */
+
+.progressWrapper{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.progressRow{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 4rem;
+}
 .yellow_underline {
   border-bottom: 2px solid #F8C992;
 }

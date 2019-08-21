@@ -23,8 +23,8 @@ const Calculator = (props) => {
                         <input required className="input calculator_input" type="text" value={props.stopPrice} name="stopPrice" onChange={props.handleChange} /> 
                 </div>
                    
-                    <br /> 
-                    <Button type='submit' className="calc-btn" onClick={props.calculate}>Calculate</Button>
+                    
+                    <Button color="dark" type='submit' className="calc-btn" onClick={props.calculate}>Calculate</Button>
             </form>
 
                 <Button type='submit' className="reset-btn" onClick={props.resetCaculator}>Reset</Button>
