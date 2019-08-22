@@ -85,6 +85,7 @@ table.table {
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
   border-radius: 29px;
   border-collapse: separate;
+  overflow-x: auto;
 }
 
 
@@ -112,6 +113,7 @@ table.table {
 
 .loginBox{
   width: 50%;
+  min-width: 325px;
   margin: 0 auto;
   background-color: #262B3E;
 }
@@ -137,8 +139,6 @@ table.table {
   margin-top: 16px;
 }
 
-
-
 #login-btn {
   background-color: #E2953B;
   color: #343A40;
@@ -150,6 +150,8 @@ table.table {
   color: white;
   border: solid 1px white;
 }
+
+
 
 
 
@@ -185,6 +187,7 @@ align-content: space-between;
 
 .watchlistTable {
   margin: 20px auto;
+  width: 90%;
 }
 
 .watchlistTable thead {
@@ -197,8 +200,8 @@ align-content: space-between;
 }
 
 .watchlistTable thead tr th {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 .watchlistTable thead tr th:last-child {
@@ -216,6 +219,7 @@ align-content: space-between;
   background-color: white;
 
 }
+
 
 
 
@@ -383,4 +387,38 @@ textarea {
 
   .noteText {
     padding: 10px;
+  }
+
+
+/* ==================
+   ==================
+   Media Queries
+   ==================
+   ================== */
+
+  @media only screen and (max-width: 769px){
+    .flexSplit{
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .alertWatchlist{
+      margin-top: 18%;
+      width: 85%;
+    }
+  
+    .calculator{
+      min-height: 630px;
+      width: 85%;
+    }
+
+    .detailsModal.modal-dialog {
+      max-width: 90% !important;
+      margin: 5% auto;
+    }
+
+    .progressRow{
+      flex-direction: column;
+      margin-left: 5%;
+    }
   }

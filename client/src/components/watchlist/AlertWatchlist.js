@@ -15,6 +15,7 @@ class AlertWatchlist extends Component {
 
     render() {
         return (
+           
             <div className="boxStyle">
                 <table className="watchlistTable">
                     <thead>
@@ -45,6 +46,7 @@ class AlertWatchlist extends Component {
                     </tbody>
                 </table>
             </div>
+        
         )
     }
 }

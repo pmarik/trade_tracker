@@ -39,7 +39,7 @@ class TradeList extends Component{
     }
 
   
-    
+  
 
     render(){
 
@@ -47,12 +47,11 @@ class TradeList extends Component{
         const itemsCopy = items.slice();
         const reverseditems = itemsCopy.reverse();
         
-        
         return(
            <Container>
                <h1>Trade Journal</h1>
                <ItemModal /> 
-               <Table className="table" hover>
+              <Table className="table" hover>
                    <thead className="thead-light">
                        <tr>
                            <th>Entry Date</th>
@@ -112,6 +111,7 @@ class TradeList extends Component{
                             ))}
                    </tbody>
                </Table>
+
            </Container>
         )
     }
