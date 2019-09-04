@@ -19,7 +19,31 @@ router.get('/', (req, res) => {
 // @route UPDATE api/items
 // @desc Update A Item
 // @access Public
-router.post('/update/:id', auth, (req, res) => {
+// router.post('/update/:id', auth, (req, res) => {
+//     Item.findById(req.params.id)
+//         .then(trade => {
+//             trade.ticker = req.body.ticker,
+//             trade.numShares = req.body.numShares,
+//             trade.entry = req.body.entry,
+//             trade.exit = req.body.exit,
+//             trade.stopPrice = req.body.stopPrice,
+//             trade.pL = req.body.pL,
+//             trade.entryDate = Date.parse(req.body.entryDate),
+//             trade.exitDate = Date.parse(req.body.exitDate),
+//             trade.strategy = req.body.strategy,
+//             trade.winLose = req.body.winLose,
+//             trade.note = req.body.note,
+//             trade.risk = req.body.risk,
+//             trade.rMultiple = req.body.rMultiple,
+//             trade.tradeIMG = req.body.tradeIMG
+
+//             trade.save()
+//                 .then(() => res.json('Trade Updated'))
+//                 .catch(err => res.status(400).json('Error: '+err ))
+//         })
+//         .catch(err => res.statusMessage(400).json('Error: ' + err))
+// })
+router.route('/update/:id').post( (req, res) => {
     Item.findById(req.params.id)
         .then(trade => {
             trade.ticker = req.body.ticker,
@@ -43,6 +67,7 @@ router.post('/update/:id', auth, (req, res) => {
         })
         .catch(err => res.statusMessage(400).json('Error: ' + err))
 })
+
 
 // @route POST api/items
 // @desc Create A Item

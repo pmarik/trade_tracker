@@ -94,7 +94,7 @@ class TradeList extends Component{
                                                     numShares={numShares}
                                                     note={note} 
                                                     entry={entry} 
-                                                    exit={exit} 
+                                                    exit={parseFloat(exit).toFixed(2)} 
                                                     stopPrice={stopPrice}
                                                     winLose={winLose} 
                                                     pL={pL} 

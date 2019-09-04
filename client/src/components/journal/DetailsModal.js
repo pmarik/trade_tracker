@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import UpdateModal from './updateModal'
+import UpdateTrade from './updateModal'
 
 
 
@@ -46,6 +46,10 @@ class DetailsModal extends Component{
         const positivePL = (<span>${this.props.pL.toFixed(2)}</span>)
         const negativePL = (<span>-${Math.abs(this.props.pL).toFixed(2)}</span>)
 
+
+
+
+
         return (
             <React.Fragment>
 
@@ -65,13 +69,13 @@ class DetailsModal extends Component{
 
                     <ModalHeader toggle={this.toggle}>{this.props.ticker} - Trade Details</ModalHeader>
                     <ModalBody>
-                        <p><strong>Entry Date:</strong> {this.props.entryDate}</p>
-                        <p><strong>Exit Date:</strong> {this.props.exitDate}</p>
+                        <p><i style={{color: "rgba(38, 43, 62, 0.8)"}}>Entry Date:</i> <strong>{this.props.entryDate}</strong></p>
+                        <p><i style={{color: "rgba(38, 43, 62, 0.8)"}}>Exit Date:</i> <strong>{this.props.exitDate}</strong></p>
                         <br />
-                        <p><strong>Entry Price:</strong> ${this.props.entry}</p>
-                        <p><strong>Exit Price:</strong> ${this.props.exit}</p>
-                        <p><strong>Shares:</strong> {this.props.numShares}</p>
-                        <p><strong>Result</strong> - {this.props.winLose} for {this.props.pL > 0 ? positivePL : negativePL}</p>
+                        <p><i style={{color: "rgba(38, 43, 62, 0.8)"}}>Entry Price:</i> <strong>${this.props.entry}</strong></p>
+                        <p><i style={{color: "rgba(38, 43, 62, 0.8)"}}>Exit Price:</i> <strong>${this.props.exit}</strong></p>
+                        <p><i style={{color: "rgba(38, 43, 62, 0.8)"}}>Shares:</i> <strong>{this.props.numShares}</strong></p>
+                        <p><i style={{color: "rgba(38, 43, 62, 0.8)"}}>Result</i> - <strong>{this.props.winLose} for {this.props.pL > 0 ? positivePL : negativePL}</strong></p>
                         <h5>Strategy/Thoughts</h5>
                         <div className="noteText">
                             <p>{this.props.note}</p>
@@ -79,8 +83,7 @@ class DetailsModal extends Component{
                        
                         <img src={`${this.props.tradeIMG}`}/> 
                     
-                        <Button                 
-                        ><Link to={`/update/${this.props._id}`} component={UpdateModal} id={this.props._id}>Edit Trade</Link></Button>
+                        <Link to={`/update/${this.props._id}`} component={UpdateTrade} ><Button>Edit Trade</Button></Link>
                     </ModalBody>
                </Modal> 
                

@@ -17,7 +17,7 @@ const db = config.get('mongoURI');
 mongoose
     .connect(db, {useNewUrlParser: true, useCreateIndex: true})
     .then(() => console.log('MongoDB Connected...'))
-    .catch(err => console.log(err));
+    .catch(err => console.log("NOT CONNECTED TO DATABASE " + err));
 
 app.use('/api/items', require('./routes/api/items'));
 app.use('/api/users', require('./routes/api/users'));

@@ -3,7 +3,8 @@ import { GET_ITEMS, ADD_ITEM, UPDATE_ITEM, DELETE_ITEM, ITEMS_LOADING } from '..
 
 const initialState = {
     items: [],
-    loading: false
+    loading: false,
+    item: []
 }
 
 export default function(state = initialState, action){
@@ -15,16 +16,21 @@ export default function(state = initialState, action){
                 loading: false
             }
   
-        // case UPDATE_ITEM:
+        case UPDATE_ITEM:
+            let newItems = state.items.slice();
+            
+            let origItem = state.items.findIndex(trade => 
+                trade._id === action.payload._id
+            )
 
-        //     let newItems = state.items.slice();
-        //     newItems.indexOf
+            newItems[origItem] = action.payload
 
-        //     return{
-        //         ...state,
-        //         items: [],
-        //         loading: false
-        //     }
+            console.log(action.payload);
+            return{
+                ...state,
+                items: newItems,
+                loading: false
+            }
             
         case DELETE_ITEM:
             return {

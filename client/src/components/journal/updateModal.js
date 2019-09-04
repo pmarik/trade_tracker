@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
     Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
+    Container,
     Form,
     FormGroup,
     Label,
@@ -15,38 +13,33 @@ import { updateItem } from '../../actions/itemActions';
 import axios from 'axios';
 
 
-class UpdateModal extends Component{
-    state = {
-        modal: true,
-        name: '',
-    }
+
+class UpdateTrade extends Component{
+    state = {}
 
     componentDidMount(){
-        axios.get(`api/items/${this.props._id}`)
-            .then(res => {
-                this.setState({
-                    _id: res.data._id,
-                    ticker: res.date.ticker,
-                    numShares: res.data.numShares,
-                    entry: res.data.entry,
-                    exit: res.data.exit,
-                    stopPrice: res.data.stopPrice,
-                    entryDate: res.data.entryDate,
-                    exitDate: res.data.exitDate,
-                    note: res.data.note,
-                    tradeIMG: res.data.tradeIMG
-                })
+       axios.get(`/api/items/${this.props.match.params.id}`)
+        .then(res => {
+            this.setState({
+                
+                _id: res.data._id,
+                ticker: res.data.ticker,
+                numShares: res.data.numShares,
+                entry: res.data.entry,
+                exit: res.data.exit,
+                stopPrice: res.data.stopPrice,
+                entryDate: res.data.entryDate,
+                exitDate: res.data.exitDate,
+                note: res.data.note,
+                tradeIMG: res.data.tradeIMG
             })
-            .catch(err => console.log(err))
-    }
 
-
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
         })
-        
+        .catch(err => console.log(err))
     }
+
+
+   
 
     onChange = (e) => {
         const name = e.target.name
@@ -81,7 +74,6 @@ class UpdateModal extends Component{
 
     calcRMultiple = (buy, exit, stop, shares, r) => {
         if( buy > stop ){
-            console.log("buy: " + buy + ", stop: " + stop + ", exit: " + exit + ", shares: " + shares + ", r: " + r)
             return ((exit - buy) * shares) / r
         }
         else{
@@ -158,19 +150,14 @@ class UpdateModal extends Component{
 
         this.props.updateItem(this.state._id, newItem);
 
-        this.toggle();
+        window.location = '/journal';
     }
 
     render(){
-        return (
-            
-                
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}>
 
-                    <ModalHeader toggle={this.toggle}>Edit Trade - {this.state.ticker}</ModalHeader>
-                    <ModalBody>
+        return (
+                <Container>
+                    <strong>Edit Trade</strong>
                         <Form onSubmit={this.onSubmit} >
                             <FormGroup className="itemModal">
                                 <Label for="item"><i>Ticker</i></Label>
@@ -223,6 +210,7 @@ class UpdateModal extends Component{
                                     name="entryDate"
                                     id="item"
                                     onChange={this.onChange}
+                                    value={this.state.entryDate}
                                     />
                                 <Label for="item"><i>Exit Date</i></Label>
                                 <Input
@@ -230,6 +218,7 @@ class UpdateModal extends Component{
                                     name="exitDate"
                                     id="item"
                                     onChange={this.onChange}
+                                    value={this.state.exitDate}
                                     />
 
 
@@ -238,6 +227,7 @@ class UpdateModal extends Component{
                                     rows="4"
                                     name="note"
                                     placeholder="Additional notes..."
+                                    value={this.state.note}
                                     onChange={this.onChange}></textarea>
 
 
@@ -247,6 +237,7 @@ class UpdateModal extends Component{
                                     name="tradeIMG"
                                     id="item"
                                     placeholder="Link to image of trade"
+                                    value={this.state.tradeIMG}
                                     onChange={this.onChange}
                                     />
                                 <Button
@@ -256,8 +247,7 @@ class UpdateModal extends Component{
                                         Update Trade</Button>
                             </FormGroup>
                         </Form>
-                    </ModalBody>
-                </Modal>
+                </Container>
             
         )
     }
@@ -268,4 +258,4 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { })(UpdateModal)
+export default connect(mapStateToProps, { updateItem })(UpdateTrade)

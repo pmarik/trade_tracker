@@ -16,9 +16,6 @@ export const getItems = () => dispatch => {
 }
 
 
-
-
-
 export const addItem = item => (dispatch, getState) => {
     axios
 .post('/api/items', item, tokenConfig(getState))
@@ -41,15 +38,15 @@ export const deleteItem = (id) => (dispatch, getState) => {
 
 }
 
-// export const updateItem = (id, item) => (dispatch, getState) => {
-//     axios
-// .post(`/api/items/update/${id}`, item, tokenConfig(getState))
-//         .then(res => dispatch({
-//             type: UPDATE_ITEM,
-//             payload: res.data 
-//         }) )    
-//         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
-// }
+export const updateItem = (id, item) => (dispatch, getState) => {
+    axios
+.post(`/api/items/update/${id}`, item, tokenConfig(getState))
+        .then(res => dispatch({
+            type: UPDATE_ITEM,
+            payload: res.data,
+        }) )    
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+}
 
 
 

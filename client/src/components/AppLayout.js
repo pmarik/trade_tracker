@@ -18,7 +18,7 @@ const AppLayout = () => {
         <Route path="/journal" component={TradeList} />
         <Route path="/watchlist" component={Watchlist} />
         <Route path="/progress" component={Progress} /> 
-        <Route path="/update" component={UpdateModal} />
+        <Route path="/update/:id" component={UpdateModal} />
     </Router>
  
   );
