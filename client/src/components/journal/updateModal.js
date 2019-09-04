@@ -150,7 +150,8 @@ class UpdateTrade extends Component{
 
         this.props.updateItem(this.state._id, newItem);
 
-        window.location = '/journal';
+        //window.location = '/journal';
+        this.props.history.push('/journal');
     }
 
     render(){

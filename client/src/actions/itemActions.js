@@ -43,7 +43,8 @@ export const updateItem = (id, item) => (dispatch, getState) => {
 .post(`/api/items/update/${id}`, item, tokenConfig(getState))
         .then(res => dispatch({
             type: UPDATE_ITEM,
-            payload: res.data,
+            payload: item,
+            ID: id
         }) )    
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 }

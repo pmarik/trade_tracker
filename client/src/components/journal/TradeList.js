@@ -25,6 +25,9 @@ class TradeList extends Component{
        this.props.getItems();
     }
 
+    componentDidUpdate(prevProps) {
+          window.scrollTo(0, 0);
+      }
     
     onDeleteClick = (id) => {
       this.props.deleteItem(id);

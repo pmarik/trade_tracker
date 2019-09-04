@@ -20,12 +20,10 @@ export default function(state = initialState, action){
             let newItems = state.items.slice();
             
             let origItem = state.items.findIndex(trade => 
-                trade._id === action.payload._id
+                trade._id === action.ID
             )
 
             newItems[origItem] = action.payload
-
-            console.log(action.payload);
             return{
                 ...state,
                 items: newItems,
