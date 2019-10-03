@@ -14,7 +14,9 @@ import {
     Container,
     Jumbotron
 } from 'reactstrap';
-
+import LandingNav from '../LandingNav';
+import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
 
 
 class Login extends Component{
@@ -23,6 +25,7 @@ class Login extends Component{
         email: '',
         password: '',
         msg: null,
+        loginRegisterSwap: false,
 
     }
 
@@ -54,29 +57,28 @@ class Login extends Component{
     }
     
 
-    onChange = (e) => {
+    
+    toggleRegister = () => {
+      
+        this.props.clearErrors();
+        if (!this.state.loginRegisterSwap)
         this.setState({
-            [e.target.name]: e.target.value,
-  
+           loginRegisterSwap: true
         })
-        
+    }
+
+    toggleLogin = () => {
+        this.props.clearErrors();
+        if (this.state.loginRegisterSwap){
+            this.setState({
+                loginRegisterSwap: false
+            });
+        }
+       
     }
 
 
-    onSubmit = e => {
-        e.preventDefault();
-
-       const { email, password } = this.state;
-       const user = {
-           email, 
-           password
-       }
-
-    //attempt to login
-       this.props.login(user);
-
-     
-    }
+    
 
 
     render(){
@@ -84,13 +86,7 @@ class Login extends Component{
         let styles = {
             outer: {
                 textAlign: "center",
-                marginTop: "7%"
-            },
-            inner: {
-                textAlign: "center",
-                color: "#F2F2F2",
-                marginBottom: 0,
-                marginTop: 20
+                marginTop: "0%"
             },
             logo: {
                 marginTop: 0,
@@ -101,55 +97,38 @@ class Login extends Component{
                 height: "1px",
                 margin: "0 auto",
                 backgroundColor: "#E2953B"
-            }
+            },
+            
             
         }
+
+
+        let loginbckgrnd = !this.state.loginRegisterSwap ? {background: "#E2953B"} : {background: "none"};
+        let regbckgrnd = this.state.loginRegisterSwap ? {background: "#A4243B"} : {background: "none"};
+    
 
         return (
             
             <Fragment>
+
+                <LandingNav /> 
+
+
                 <div style={styles.outer} >
                    
 
                     <Container>
-                        <Jumbotron className="boxStyle loginBox" >
-                        <h1 style={styles.logo}>Trade Tracker</h1>
-                        <hr style={styles.hr}/>
-                        <h5 style={styles.inner}>Login or Register</h5>
+                        <div className="boxStyle loginBox" >
+                            <h1 style={styles.logo}>Trade Tracker</h1>
+                            <hr style={styles.hr}/>
+                            <div className="loginRegister-Btns">
+                                <span style={loginbckgrnd}><button onClick={this.toggleLogin}>Login</button></span> 
+                                <span style={regbckgrnd}><button onClick={this.toggleRegister}>Register</button></span>
+                            </div>
 
-                        { this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
+                            {this.state.loginRegisterSwap ? <RegisterForm/> : <LoginForm/>}
 
-                            <Form onSubmit={this.onSubmit}>
-                                <FormGroup className="loginForm">
-                                    
-
-                                    <Label for="email">Email</Label>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        placeholder="Email"
-                                        className="mb-3"
-                                        onChange={this.onChange}
-                                        />
-
-                                    <Label for="password">Password</Label>
-                                    <Input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        placeholder="Password"
-                                        className="mb-3"
-                                        onChange={this.onChange}
-                                        />
-                                    <Button
-                                        id="login-btn"
-                                        style={{marginTop: '2rem'}}
-                                        block>
-                                            Login</Button>
-                                </FormGroup>
-                            </Form>
-                        </Jumbotron>
+                        </div>
                     </Container>
                 </div>
             </Fragment>

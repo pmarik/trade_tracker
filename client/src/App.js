@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/authActions';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LandingPage from './components/LandingPage';
 import Login from './components/auth/Login'
 import AppLayout from './components/AppLayout'
 import  PrivateRoute from './components/auth/ProtectedRoute'
@@ -23,6 +24,7 @@ import  PrivateRoute from './components/auth/ProtectedRoute'
       <Router>
     
           <Switch>
+            <Route path="/home" exact component={LandingPage} />
             <Route path="/login" exact component={Login} />
             <PrivateRoute path="/" component={AppLayout}></PrivateRoute>
           </Switch>

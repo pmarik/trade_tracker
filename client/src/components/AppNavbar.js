@@ -13,7 +13,7 @@ import {
 import {NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
-import RegisterModal from './auth/RegisterModal'
+import RegisterModal from './auth/RegisterForm'
 import Logout from './auth/Logout'
 import { logout } from '../actions/authActions'
 import WatchList from './watchlist/WatchList'

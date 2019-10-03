@@ -59,6 +59,29 @@
   text-decoration: none;
 }
 
+/* ========
+  Landing Nav Styles
+   ======== */
+.nav-landing{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ========
+  Landing Page Home Styles
+   ======== */
+.landingTop{
+  height: 65vh;
+  text-align: center;
+  background: pink;
+}
+
+.landingMid{
+  height: 50vh;
+  background: #262B3E;
+}
+
+
 
 /* ========
   Tradelist Styles
@@ -107,11 +130,14 @@ table.table {
    } 
 
 
+
 /* ========
   Login Styles
    ======== */
 
-.loginBox{
+
+.boxStyle.loginBox{
+  height: 575px;
   width: 50%;
   min-width: 325px;
   margin: 0 auto;
@@ -151,7 +177,35 @@ table.table {
   border: solid 1px white;
 }
 
+/* login and register box styles */
+.loginRegister-Btns{
+    text-align: "center";
+    color: "#F2F2F2";
+    margin-bottom: 0;
+    margin-top: 20px;
+    height: 80px;
+    display: flex;
+   
+}
 
+.loginRegister-Btns button {
+  height: 50%;
+  background: none;
+  color: #B6B1B1;
+  border: none;
+}
+
+.loginRegister-Btns button:hover{
+  color: #f4f4f4;
+}
+
+.loginRegister-Btns > span {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
@@ -224,7 +278,7 @@ align-content: space-between;
 
 
 .boxStyle{
-  border-radius: 35px;
+  /* border-radius: 35px; */
   box-shadow: 3px 3px 5px #343a40;
   border: 1px solid #E2953B;
   height: 100%;

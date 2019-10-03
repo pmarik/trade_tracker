@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
 import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
-class RegisterModal extends Component{
+class RegisterForm extends Component{
     state = {
         modal: false,
         name: '',
@@ -88,16 +88,7 @@ class RegisterModal extends Component{
     render(){
         return (
             <div>
-               <NavLink onClick={this.toggle} href="#">
-                   Register
-               </NavLink>
-
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}>
-
-                    <ModalHeader toggle={this.toggle}>Register</ModalHeader>
-                    <ModalBody>
+               
                         { this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
@@ -137,8 +128,7 @@ class RegisterModal extends Component{
                                         Register</Button>
                             </FormGroup>
                         </Form>
-                    </ModalBody>
-                </Modal>
+                 
             </div>
         )
     }
@@ -149,4 +139,4 @@ const mapStateToProps = state => ({
     error: state.error
 })
 
-export default connect(mapStateToProps, { register, clearErrors })(RegisterModal)
+export default connect(mapStateToProps, { register, clearErrors })(RegisterForm)
