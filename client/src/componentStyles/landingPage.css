@@ -1,0 +1,13 @@
+/* ========
+  Landing Page Home Styles
+   ======== */
+   .landingTop{
+    height: 65vh;
+    text-align: center;
+    background: pink;
+  }
+  
+  .landingMid{
+    height: 50vh;
+    background: #262B3E;
+  }

@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
+import '../../componentStyles/registerForm.css';
 
 class RegisterForm extends Component{
     state = {
@@ -90,10 +91,11 @@ class RegisterForm extends Component{
             <div>
                
                         { this.state.msg ? <Alert color="danger">{ this.state.msg }</Alert> : null }
-                        <Form onSubmit={this.onSubmit}>
+                        <Form onSubmit={this.onSubmit} className="registerForm">
                             <FormGroup>
                                 <Label for="name">Name</Label>
                                 <Input
+                                    required
                                     type="text"
                                     name="name"
                                     id="name"
@@ -104,6 +106,7 @@ class RegisterForm extends Component{
 
                                 <Label for="email">Email</Label>
                                 <Input
+                                    required
                                     type="email"
                                     name="email"
                                     id="email"
@@ -114,6 +117,7 @@ class RegisterForm extends Component{
 
                                 <Label for="password">Password</Label>
                                 <Input
+                                    required
                                     type="password"
                                     name="password"
                                     id="password"

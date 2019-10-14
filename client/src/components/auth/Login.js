@@ -17,6 +17,7 @@ import {
 import LandingNav from '../LandingNav';
 import RegisterForm from './RegisterForm';
 import LoginForm from './LoginForm';
+import '../../componentStyles/loginPage.css';
 
 
 class Login extends Component{
@@ -89,7 +90,7 @@ class Login extends Component{
                 marginTop: "0%"
             },
             logo: {
-                marginTop: 0,
+                marginTop: "45px",
                 color: "#FFF",
             },
             hr: {
@@ -103,9 +104,6 @@ class Login extends Component{
         }
 
 
-        let loginbckgrnd = !this.state.loginRegisterSwap ? {background: "#E2953B"} : {background: "none"};
-        let regbckgrnd = this.state.loginRegisterSwap ? {background: "#A4243B"} : {background: "none"};
-    
 
         return (
             
@@ -122,8 +120,8 @@ class Login extends Component{
                             <h1 style={styles.logo}>Trade Tracker</h1>
                             <hr style={styles.hr}/>
                             <div className="loginRegister-Btns">
-                                <span style={loginbckgrnd}><button onClick={this.toggleLogin}>Login</button></span> 
-                                <span style={regbckgrnd}><button onClick={this.toggleRegister}>Register</button></span>
+                                <span className={(!this.state.loginRegisterSwap ? "loginActive" : "activeTransition")} ><button onClick={this.toggleLogin}>Login</button></span> 
+                                <span className={(this.state.loginRegisterSwap ? "regActive" : "activeRegTransition")}><button onClick={this.toggleRegister}>Register</button></span>
                             </div>
 
                             {this.state.loginRegisterSwap ? <RegisterForm/> : <LoginForm/>}

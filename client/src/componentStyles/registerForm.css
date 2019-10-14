@@ -1,0 +1,28 @@
+.registerForm{
+    width: 55%;
+    margin: 0 auto;
+}
+
+.registerForm label {
+    color: grey;
+    margin-bottom: .2rem;
+}
+
+.registerForm input {
+    background: #B3C7D2;
+}
+
+.registerForm button {
+    background:#E2953B;
+    color: #343A40;
+    font-weight: bold;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 0;
+}
+
+.registerForm button:hover{
+    color: white;
+    border: solid 1px white;
+    background: #E2953B;
+  }

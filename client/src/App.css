@@ -1,478 +1,391 @@
 .h1, h1 {
-  font-size: 2rem;
-}
-.remove-btn {
-  margin-right: 0.5rem;
-}
-
-.fade-enter{
- opacity: 0.01;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 1000ms ease-in;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active{
-  opacity: 0.01;
-  transition: opacity 1000ms ease-in;
-
-}
-
-.nav-brand {
-  color: white !important;
-}
-
-.navBar {
-  background: #262B3E;
-}
-
-.mb-5.navBar {
-  margin-bottom: 2.2rem !important;
-}
-
-.logout-btn {
-  color: grey !important;
-}
-
-.logout-btn:hover {
-  color: white !important;
-  cursor: pointer;
-}
-
-.active {
-  border-bottom: 3px solid #E2953B
-}
-
-.nav-item{
-  padding: 10px 10px 10px 10px;
-  color: #B3C7D2;
-}
-
-.nav-item:hover{
-  color: white;
-  text-decoration: none;
-}
-
-/* ========
-  Landing Nav Styles
-   ======== */
-.nav-landing{
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* ========
-  Landing Page Home Styles
-   ======== */
-.landingTop{
-  height: 65vh;
-  text-align: center;
-  background: pink;
-}
-
-.landingMid{
-  height: 50vh;
-  background: #262B3E;
-}
-
-
-
-/* ========
-  Tradelist Styles
-   ======== */
-th span {
-  display: block;
-}
-
-.table thead th {
-  vertical-align: top;
-}
-
-
-.table thead th:first-child{
-  border-radius: 27px 0 0 0;
-}
-
-.table thead th:last-child{
-  border-radius: 0 27px 0 0;
-}
-
-table.table {
-  border: 1px solid #E2953B;
-  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 29px;
-  border-collapse: separate;
-  overflow-x: auto;
-}
-
-
-/* ========
-  Tradelist Styles
-   ======== */
-
-   .view-btn {
-    background-color: #6c757d;
-    color: #FFF;
-    height: 30px;
-    text-align: center;
-    vertical-align: center;
-   }
-
-    .view-btn.btn{
-     
-     padding: 0 .5rem ;
-   } 
-
-
-
-/* ========
-  Login Styles
-   ======== */
-
-
-.boxStyle.loginBox{
-  height: 575px;
-  width: 50%;
-  min-width: 325px;
-  margin: 0 auto;
-  background-color: #262B3E;
-}
-
-.loginForm .form-control {
-  width: 55%;
-  margin: 0 auto;
-  background: #B3C7D2;
-}
-
-.loginForm .btn-block {
-  width: 25%;
-  margin: 0 auto;
-}
-
-.loginForm label {
-  margin-bottom: .2rem;
-}
-
-.loginForm.form-group {
-  margin-bottom: 0;
-  color: grey;
-  margin-top: 16px;
-}
-
-#login-btn {
-  background-color: #E2953B;
-  color: #343A40;
-  font-weight: bold;
-  border-radius: 15px;
-}
-
-#login-btn:hover{
-  color: white;
-  border: solid 1px white;
-}
-
-/* login and register box styles */
-.loginRegister-Btns{
-    text-align: "center";
-    color: "#F2F2F2";
-    margin-bottom: 0;
-    margin-top: 20px;
-    height: 80px;
+    font-size: 2rem;
+  }
+  .remove-btn {
+    margin-right: 0.5rem;
+  }
+  
+  .fade-enter{
+   opacity: 0.01;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active{
+    opacity: 0.01;
+    transition: opacity 1000ms ease-in;
+  
+  }
+  
+  .nav-brand {
+    color: white !important;
+  }
+  
+  .navBar {
+    background: #262B3E;
+  }
+  
+  .mb-5.navBar {
+    margin-bottom: 2.2rem !important;
+  }
+  
+  .logout-btn {
+    color: grey !important;
+  }
+  
+  .logout-btn:hover {
+    color: white !important;
+    cursor: pointer;
+  }
+  
+  .active {
+    border-bottom: 3px solid #E2953B
+  }
+  
+  .nav-item{
+    padding: 10px 10px 10px 10px;
+    color: #B3C7D2;
+  }
+  
+  .nav-item:hover{
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* ========
+    Landing Nav Styles
+     ======== */
+  .nav-landing{
     display: flex;
-   
-}
-
-.loginRegister-Btns button {
-  height: 50%;
-  background: none;
-  color: #B6B1B1;
-  border: none;
-}
-
-.loginRegister-Btns button:hover{
-  color: #f4f4f4;
-}
-
-.loginRegister-Btns > span {
-  width: 50%;
-  height: 100%;
+    justify-content: flex-end;
+  }
+  
+  
+  
+  
+  
+  /* ========
+    Tradelist Styles
+     ======== */
+  th span {
+    display: block;
+  }
+  
+  .table thead th {
+    vertical-align: top;
+  }
+  
+  
+  .table thead th:first-child{
+    border-radius: 27px 0 0 0;
+  }
+  
+  .table thead th:last-child{
+    border-radius: 0 27px 0 0;
+  }
+  
+  table.table {
+    border: 1px solid #E2953B;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 29px;
+    border-collapse: separate;
+    overflow-x: auto;
+  }
+  
+  
+  /* ========
+    Tradelist Styles
+     ======== */
+  
+     .view-btn {
+      background-color: #6c757d;
+      color: #FFF;
+      height: 30px;
+      text-align: center;
+      vertical-align: center;
+     }
+  
+      .view-btn.btn{
+       
+       padding: 0 .5rem ;
+     } 
+  
+  
+  
+  
+  
+  
+  /* ========
+    Watchlist Styles
+     ======== */
+  
+  .flexSplit{
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-
-
-/* ========
-  Watchlist Styles
-   ======== */
-
-.flexSplit{
-display: flex;
-justify-content: center;
-align-items: flex-start;
-align-content: space-between;
-}
-
-.calculator{
-  width: 40%;
-  height: 73vh;
-  min-height: 530px;
-  display: inline-block;
-  text-align: center;
-}
-
-.alertWatchlist{
-  width: 55%;
-  height: 73vh;
-  min-height: 530px;
-  top: 0;
-  display: inline-block;
-  margin-left: 5%;
-  text-align: center;
-
-}
-
-.watchlistTable {
-  margin: 20px auto;
-  width: 90%;
-}
-
-.watchlistTable thead {
-  background-color: #e9ecef;
-  border-radius: 10px;
-}
-
-.watchlistTable thead tr{
-  border-bottom: 1px solid #343a40 ;
-}
-
-.watchlistTable thead tr th {
-  padding-left: 4%;
-  padding-right: 4%;
-}
-
-.watchlistTable thead tr th:last-child {
- padding-left: 0;
- padding-right: 30px;
- color: #b8757b
-}
-
-.watchlistTable tr {
-  border-bottom: 1px solid #B3C7D2;
-}
-
-
-.watchlistTable tbody{
-  background-color: white;
-
-}
-
-
-
-
-.boxStyle{
-  /* border-radius: 35px; */
-  box-shadow: 3px 3px 5px #343a40;
-  border: 1px solid #E2953B;
-  height: 100%;
-}
-
-.inline_p{
-  display: inline
-}
-
-.portfolioValue{
-  text-align: left;
- padding-left: 10px;
- padding-right: 10px;
- margin: 10px;
-
-}
-
-.portfolioValue p {
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.input{
-  border-radius: 8px;
-  text-align: center;
-}
-
-.riskValue {
-  width: 2rem;
-  margin-left: 5px;
-}
-
-
-
-/* ========
-  Calculator Styles
-   ======== */
-
-.calculator_input{
-  height: 2rem;
-  width: 5.5rem;
-
-}
-
-.calculator_label{
-  width: 100px;
-  text-align: center;
-  
-}
-
-.calcItem {
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 43%;
-}
-
-.calculatorForm{
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.calculatorForm label {
-  margin-top: 10px;
-}
-
-.btn.btn-secondary.calc-btn{ 
-  position: relative;
-  left: 0 !important;
-}
-
-.calculatorForm label input {
-  display: block;
-}
-
-.reset-btn {
-  margin-top: 10px;
-}
-
-/* ========
-  Progress Styles
-   ======== */
-
-.progressWrapper{
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.progressRow{
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 4rem;
-}
-.yellow_underline {
-  border-bottom: 2px solid #F8C992;
-}
-
-
-/* ========
-  Item modal Styles
-   ======== */
-
-.radioInput {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.radio_btn{
-  margin-left: 50px;
-}
-
-textarea {
-  display: block;
-  border-radius: 8px;
-  width: 100%;
-}
-
-.itemModal.form-group label {
-  margin-bottom: 0;
-}
-
-.itemModal.form-group input {
-  margin-bottom: .5rem;
-}
-
-.itemModal.form-group textarea {
-  margin-bottom: .5rem;
-}
-
-/* ========
-  Details modal Styles
-   ======== */
-
-
-  .detailsModal.modal-dialog {
-    max-width: 70% !important;
+  align-items: flex-start;
+  align-content: space-between;
   }
-
-  .modal-body img {
-    display: block;
-    margin: 0 auto;
+  
+  .calculator{
+    width: 40%;
+    height: 73vh;
+    min-height: 530px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .alertWatchlist{
+    width: 55%;
+    height: 73vh;
+    min-height: 530px;
+    top: 0;
+    display: inline-block;
+    margin-left: 5%;
+    text-align: center;
+  
+  }
+  
+  .watchlistTable {
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+  .watchlistTable thead {
+    background-color: #e9ecef;
+    border-radius: 10px;
+  }
+  
+  .watchlistTable thead tr{
+    border-bottom: 1px solid #343a40 ;
+  }
+  
+  .watchlistTable thead tr th {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  
+  .watchlistTable thead tr th:last-child {
+   padding-left: 0;
+   padding-right: 30px;
+   color: #b8757b
+  }
+  
+  .watchlistTable tr {
+    border-bottom: 1px solid #B3C7D2;
+  }
+  
+  
+  .watchlistTable tbody{
+    background-color: white;
+  
+  }
+  
+  
+  
+  
+  .boxStyle{
+    /* border-radius: 35px; */
+    box-shadow: 3px 3px 5px #343a40;
+    border: 1px solid #E2953B;
+    height: 100%;
+  }
+  
+  .inline_p{
+    display: inline
+  }
+  
+  .portfolioValue{
+    text-align: left;
+   padding-left: 10px;
+   padding-right: 10px;
+   margin: 10px;
+  
+  }
+  
+  .portfolioValue p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+  .input{
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .riskValue {
+    width: 2rem;
+    margin-left: 5px;
+  }
+  
+  
+  
+  /* ========
+    Calculator Styles
+     ======== */
+  
+  .calculator_input{
+    height: 2rem;
+    width: 5.5rem;
+  
+  }
+  
+  .calculator_label{
+    width: 100px;
+    text-align: center;
+    
+  }
+  
+  .calcItem {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 43%;
+  }
+  
+  .calculatorForm{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
     width: 100%;
   }
-
-  .modal-body p{
-    display: inline-block;
-    margin-right: 50px;
+  
+  .calculatorForm label {
+    margin-top: 10px;
   }
-
-  .noteText {
-    border: 1px solid grey;
+  
+  .btn.btn-secondary.calc-btn{ 
+    position: relative;
+    left: 0 !important;
+  }
+  
+  .calculatorForm label input {
+    display: block;
+  }
+  
+  .reset-btn {
+    margin-top: 10px;
+  }
+  
+  /* ========
+    Progress Styles
+     ======== */
+  
+  .progressWrapper{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .progressRow{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+  }
+  .yellow_underline {
+    border-bottom: 2px solid #F8C992;
+  }
+  
+  
+  /* ========
+    Item modal Styles
+     ======== */
+  
+  .radioInput {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .radio_btn{
+    margin-left: 50px;
+  }
+  
+  textarea {
+    display: block;
     border-radius: 8px;
+    width: 100%;
   }
-
-  .noteText {
-    padding: 10px;
+  
+  .itemModal.form-group label {
+    margin-bottom: 0;
   }
-
-
-/* ==================
-   ==================
-   Media Queries
-   ==================
-   ================== */
-
-  @media only screen and (max-width: 769px){
-    .flexSplit{
-      flex-direction: column;
-      align-items: center;
-    }
   
-    .alertWatchlist{
-      margin-top: 18%;
-      width: 85%;
-    }
+  .itemModal.form-group input {
+    margin-bottom: .5rem;
+  }
   
-    .calculator{
-      min-height: 630px;
-      width: 85%;
-    }
-
+  .itemModal.form-group textarea {
+    margin-bottom: .5rem;
+  }
+  
+  /* ========
+    Details modal Styles
+     ======== */
+  
+  
     .detailsModal.modal-dialog {
-      max-width: 90% !important;
-      margin: 5% auto;
+      max-width: 70% !important;
     }
-
-    .progressRow{
-      flex-direction: column;
-      margin-left: 5%;
+  
+    .modal-body img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
     }
-  }
+  
+    .modal-body p{
+      display: inline-block;
+      margin-right: 50px;
+    }
+  
+    .noteText {
+      border: 1px solid grey;
+      border-radius: 8px;
+    }
+  
+    .noteText {
+      padding: 10px;
+    }
+  
+  
+  /* ==================
+     ==================
+     Media Queries
+     ==================
+     ================== */
+  
+    @media only screen and (max-width: 769px){
+      .flexSplit{
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .alertWatchlist{
+        margin-top: 18%;
+        width: 85%;
+      }
+    
+      .calculator{
+        min-height: 630px;
+        width: 85%;
+      }
+  
+      .detailsModal.modal-dialog {
+        max-width: 90% !important;
+        margin: 5% auto;
+      }
+  
+      .progressRow{
+        flex-direction: column;
+        margin-left: 5%;
+      }
+    }

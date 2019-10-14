@@ -12,7 +12,7 @@ import {
     Container,
     Jumbotron
 } from 'reactstrap';
-
+import '../componentStyles/landingPage.css';
 
 const LandingPage = () => {
   return (
@@ -34,9 +34,6 @@ const LandingPage = () => {
                 </Container>
                 
             </div>
-
-
-        
 
     </React.Fragment>
  
