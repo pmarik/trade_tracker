@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage';
 import Login from './components/auth/Login'
 import AppLayout from './components/AppLayout'
 import  PrivateRoute from './components/auth/ProtectedRoute'
+import LostPage from './LostPage';
 
 
  class App extends Component {
@@ -27,6 +28,7 @@ import  PrivateRoute from './components/auth/ProtectedRoute'
             <Route path="/home" exact component={LandingPage} />
             <Route path="/login" exact component={Login} />
             <PrivateRoute path="/" component={AppLayout}></PrivateRoute>
+            <Route component={LostPage} />
           </Switch>
         
       </Router>

@@ -2,12 +2,190 @@
   Landing Page Home Styles
    ======== */
    .landingTop{
-    height: 65vh;
+    height: 40vh;
+   
+  }
+
+  /* .landingTop::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+    left: 60%;
+    background: url('../images/goldRed.svg') 0 0 no-repeat;
+    transform: rotate(-19deg);
+    z-index: -1;
+  } */
+
+
+
+  .landingTop h1{
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landingTop h2{
+    font-size: 1.2rem;
+    padding-top: 40px;
+    width: 60%;
+    margin: 0 auto;
     text-align: center;
-    background: pink;
   }
   
   .landingMid{
-    height: 50vh;
+    height: 80vh;
+    background-color: #262B3E;
+    border-bottom: 8px solid #A4243B;
+    border-top: 8px solid #E2953B;
+    color:#fff;
+    font-size: 1.4rem;
+    position: relative;
+  }
+
+  .attempt{
+    margin-left: 12%;
+    content: '';
+    height: 100%;
+    top: 0;
+    display: block;
+    position: absolute;
+    background-attachment: fixed;
+    background: url('../images/candlesticks.svg');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .tryHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    max-width: 500px;
+    margin-top: 10%;
+    z-index: 100;
+  }
+
+  .tryHeader button{
+    width: 120px;
+    background: #E2953B;
+    border: 0;
+    border-radius: 0;
+
+  }
+
+  .tryHeader button a {
+    color: #262B3E;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .tryHeader button:hover{
+    border: 1px solid #fff;
+    background: #E2953B;
+  }
+
+  .trackSection{
+    margin-top: 60px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  
+  }
+
+  .trackSection p {
+    text-align: center;
+    width: 70%;
+    font-size: 1.2rem;
+  }
+
+  .logtradesvisual{
+    padding-top: 20px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .logtradesvisual img {
+    height: 100px;
+  }
+  .landingPreview{
+    min-height: 500px;
+    margin-top: 100px;
+    padding-bottom: 20px;
+  }
+
+  .previews{
+    min-height: 375px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .previewSection{
+    min-width: 150px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .previewSection p {
+    max-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+
+  .previewSection img {
+    height: 188px;
+    border: 1px solid black;
+  }
+
+  .loginBanner{
+    background: #e2953b;
+    color: #fff;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loginBanner p {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .loginBanner p a{
+    color: #262B3E;
+    font-weight: bold;
+  }
+
+  .freeTrialBottom{
+   min-height: 200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+  }
+
+  footer {
+    min-height: 100px;
     background: #262B3E;
+    color: grey;
+  }
+
+
+  @media only screen and (max-width: 767px){
+    .logtradesvisual img {
+      height: 50px;
+    }
   }

@@ -118,13 +118,13 @@ class Progress extends Component {
                         <div><p style={styles.pTitle}>Account Size</p><p style={styles.pValue}>${this.props.totalPortfolio.toFixed(2)}</p></div>
                         <div><p style={styles.pTitle}>Total P/L</p><p style={styles.pValue}>{totalPL.pL > 0 ? <td>${totalPL.pL.toFixed(2)}</td> : <td>-${Math.abs(totalPL.pL.toFixed(2))}</td> }</p></div>
                         <div><p style={styles.pTitle}>Number of Trades</p><p style={styles.pValue}>{items.length}</p></div>
-                        <div><p style={styles.pTitle}>Win/Lose Ratio</p><p style={styles.pValue}>{winLoseRatio.toFixed(2)}%</p></div>
                     </div>
 
                     <div className="progressRow yellow_underline">
                         <div><p style={styles.pTitle}>Average Win</p><p style={styles.pValue}>${avgWin.toFixed(2)}</p></div>
                         <div><p style={styles.pTitle}>Average Loss</p><p style={styles.pValue}>-${Math.abs(avgLoss).toFixed(2)}</p></div>
-                        <div><p style={styles.pTitle}>Average Risk Per Trade</p><p style={styles.pValue}>{this.props.riskPercent}% (${this.props.riskDollarValue.toFixed(2)}) of total account size</p></div>
+                        <div><p style={styles.pTitle}>Win/Lose Ratio</p><p style={styles.pValue}>{winLoseRatio.toFixed(2)}%</p></div>
+
                     </div>
                     
                     <div>

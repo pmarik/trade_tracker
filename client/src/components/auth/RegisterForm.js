@@ -126,7 +126,6 @@ class RegisterForm extends Component{
                                     onChange={this.onChange}
                                     />
                                 <Button
-                                    color="dark"
                                     style={{marginTop: '2rem'}}
                                     block>
                                         Register</Button>

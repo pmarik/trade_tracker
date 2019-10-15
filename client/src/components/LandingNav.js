@@ -47,7 +47,7 @@ class LandingNav extends Component {
                         
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar className="nav-landing">
-                            <NavLink to="/home" className="nav-item" component={LandingPage}>Home</NavLink>
+                            <NavLink to="/home" exact className="nav-item" component={LandingPage}>Home</NavLink>
                             <NavLink to="/login" className="nav-item" component={Login}>Login</NavLink>
 
                         </Collapse>
