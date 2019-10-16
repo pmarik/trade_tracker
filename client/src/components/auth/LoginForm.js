@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
@@ -11,8 +11,6 @@ import {
     Label,
     Input,
     Alert,
-    Container,
-    Jumbotron
 } from 'reactstrap';
 
 

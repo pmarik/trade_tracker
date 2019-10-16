@@ -64,7 +64,6 @@ class ItemModal extends Component{
 
     calcRMultiple = (buy, exit, stop, shares, r) => {
         if( buy > stop ){
-            console.log("buy: " + buy + ", stop: " + stop + ", exit: " + exit + ", shares: " + shares + ", r: " + r)
             return ((exit - buy) * shares) / r
         }
         else{

@@ -4,19 +4,15 @@ import {
     Modal,
     ModalHeader,
     ModalBody,
-    Form,
-    FormGroup,
-    Label,
-    Input
+    
 } from 'reactstrap';
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
+
 
 
 class DeleteModal extends Component{
     state = {
         modal: false,
-        name: '',
+       
     }
 
 
@@ -26,10 +22,7 @@ class DeleteModal extends Component{
         })
     }
 
-    onChange = (e) => {
-        const name = e.target.name
-       
-    }
+  
 
 
 

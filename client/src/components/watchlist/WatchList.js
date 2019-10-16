@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button } from 'reactstrap';
+import { Container } from 'reactstrap';
 import RiskCalculator from './RiskCalculator';
 import AlertWatchlist from './AlertWatchlist';
 

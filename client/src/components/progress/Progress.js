@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Table } from 'reactstrap';
+import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import { setPortfolioValue, getTotalPortfolio } from '../../actions/watchActions'
 
@@ -43,7 +43,6 @@ class Progress extends Component {
         const { items } = this.props.item;
         let totalPL = 0;
         let winLoseRatio = 0;
-        let totalR = 0;
         let avgWin = 0;
         let avgLoss = 0;
 
@@ -55,15 +54,11 @@ class Progress extends Component {
             ));
 
             let wins = items.filter(trade => {
-                return trade.winLose == "Win"
+                return trade.winLose === "Win"
             })
 
             winLoseRatio = (wins.length / items.length) * 100
 
-            //Calculate total R
-            totalR = items.reduce((accum, currentVal) => ( 
-                 {rMultiple: accum.rMultiple + currentVal.rMultiple}
-            ));
 
             //Calcualte average win
             let winners = items.filter(trade => {
@@ -116,7 +111,7 @@ class Progress extends Component {
                 <div className="progressWrapper">
                     <div className="progressRow yellow_underline">
                         <div><p style={styles.pTitle}>Account Size</p><p style={styles.pValue}>${this.props.totalPortfolio.toFixed(2)}</p></div>
-                        <div><p style={styles.pTitle}>Total P/L</p><p style={styles.pValue}>{totalPL.pL > 0 ? <td>${totalPL.pL.toFixed(2)}</td> : <td>-${Math.abs(totalPL.pL.toFixed(2))}</td> }</p></div>
+                        <div><p style={styles.pTitle}>Total P/L</p><div style={styles.pValue}>{totalPL.pL > 0 ? <p>${totalPL.pL.toFixed(2)}</p> : <p>-${Math.abs(totalPL.pL.toFixed(2))}</p> }</div></div>
                         <div><p style={styles.pTitle}>Number of Trades</p><p style={styles.pValue}>{items.length}</p></div>
                     </div>
 

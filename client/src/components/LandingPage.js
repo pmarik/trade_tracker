@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import LandingNav from './LandingNav';
-import {Link, withRouter } from 'react-router-dom'
+import {Link } from 'react-router-dom'
 import Login from './auth/Login';
 import {
     Button,

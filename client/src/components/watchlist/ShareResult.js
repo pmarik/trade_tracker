@@ -35,6 +35,7 @@ const ShareResult = (props) => {
                  if(trade.ticker.toLowerCase() === props.ticker.toLowerCase()){
                      return true
                  }
+                 else{return false}
              })
             if(matchTicker.length > 0){
 

@@ -3,7 +3,6 @@ import { returnErrors } from './errorActions'
 import {
     USER_LOADED,
     USER_LOADING,
-    USER_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT_SUCCESS,

@@ -1,18 +1,12 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component} from 'react';
 import {
     Collapse,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     Navbar,
     NavbarToggler,
     NavbarBrand,
     Nav,
 } from 'reactstrap'
-import {NavLink, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
+import {NavLink } from 'react-router-dom'
 import LandingPage from './LandingPage';
 import Login from './auth/Login';
 
@@ -25,9 +19,6 @@ class LandingNav extends Component {
             isOpen: false
         }
 
-        static propTypes = {
-            auth: PropTypes.object.isRequired
-        }
 
         toggle = () => {
             this.setState({

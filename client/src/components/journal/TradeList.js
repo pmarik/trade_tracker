@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 //import { Link } from 'react-router-dom';
 import { getItems, deleteItem } from '../../actions/itemActions';
 import { connect } from 'react-redux';
-import { Container, Button, Table } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Container, Table } from 'reactstrap';
+import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types'
 import ItemModal from './itemModal';
 import DetailsModal from './DetailsModal'
-import UpdateModal from './updateModal';
 import DeleteModal from './DeleteModal'
 
 
@@ -88,7 +87,7 @@ class TradeList extends Component{
                                                 <td>${risk.toFixed(2)}</td>
                                                 {rMultiple >= 0 ? <td>+{rMultiple.toFixed(2)} R</td> : <td>{rMultiple.toFixed(2)} R</td>}
                                                 {pL >= 0 ? <td>${pL.toFixed(2)}</td> : <td>-${Math.abs(pL).toFixed(2)}</td>}
-                                                {winLose == "Win" ? <td style={{color: "#0a9618"}}>{winLose}</td> : <td style={{color: "red"}}>{winLose}</td>}
+                                                {winLose === "Win" ? <td style={{color: "#0a9618"}}>{winLose}</td> : <td style={{color: "red"}}>{winLose}</td>}
                                                 <td> <DetailsModal
                                                     _id={_id}
                                                     entryDate={this.reverseDate(entryDate.substring(0,10))}

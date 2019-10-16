@@ -1,10 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import {
     Collapse,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     Navbar,
     NavbarToggler,
     NavbarBrand,
@@ -13,8 +9,6 @@ import {
 import {NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
-import RegisterModal from './auth/RegisterForm'
-import Logout from './auth/Logout'
 import { logout } from '../actions/authActions'
 import WatchList from './watchlist/WatchList'
 import Progress from './progress/Progress'
