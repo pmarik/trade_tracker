@@ -4,130 +4,154 @@
   
   
      .boxStyle.loginBox{
-        height: 575px;
-        width: 50%;
-        min-width: 400px;
-        margin: 0 auto;
-        background-color: #262B3E;
-      }
-      
-      .loginForm .form-control {
-        width: 55%;
-        margin: 0 auto;
-        background: #B3C7D2;
-      }
-      
-      .loginForm .btn-block {
-        width: 25%;
-        margin: 0 auto;
-      }
-      
-      .loginForm label {
-        margin-bottom: .2rem;
-      }
-      
-      .loginForm.form-group {
+      height: 575px;
+      width: 50%;
+      min-width: 400px;
+      margin: 0 auto;
+      background-color: #262B3E;
+    }
+    
+    .loginForm .form-control {
+      width: 55%;
+      margin: 0 auto;
+      background: #B3C7D2;
+    }
+    
+    .loginForm .btn-block {
+      width: 25%;
+      margin: 0 auto;
+    }
+    
+    .loginForm label {
+      margin-bottom: .2rem;
+    }
+    
+    .loginForm.form-group {
+      margin-bottom: 0;
+      color: grey;
+    }
+    
+    #login-btn {
+      background-color: #E2953B;
+      color: #343A40;
+      font-weight: bold;
+      border-radius: 0px;
+    }
+    
+    #login-btn:hover{
+      color: white;
+      border: solid 1px white;
+    }
+    
+    /* login and register box styles */
+    .loginRegister-Btns{
+        text-align: "center";
+        color: "#F2F2F2";
         margin-bottom: 0;
-        color: grey;
-      }
-      
-      #login-btn {
-        background-color: #E2953B;
-        color: #343A40;
-        font-weight: bold;
-        border-radius: 0px;
-      }
-      
-      #login-btn:hover{
-        color: white;
-        border: solid 1px white;
-      }
-      
-      /* login and register box styles */
-      .loginRegister-Btns{
-          text-align: "center";
-          color: "#F2F2F2";
-          margin-bottom: 0;
-          margin-top: 30px;
-          height: 80px;
-          display: flex;
-         
-      }
-      
-      .loginRegister-Btns button {
-        height: 60%;
-        background: none;
-        color: #B3C7D2;
-        border: none;
-        font-size: 1.2rem;
-        letter-spacing:1px;
-      }
-      
-      .loginRegister-Btns button:hover{
-        color: #fff;
-      }
-
-      .loginRegister-Btns button:focus{
-        outline: none;
-      }
-      
-      .loginRegister-Btns > span {
-        width: 50%;
-        height: 70%;
+        margin-top: 30px;
+        height: 80px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .loginActive{
-        background: linear-gradient(to left, #E2953B 50%, #262B3E 50%);
-        background-size: 200% 100%;
-        background-position:right bottom;
-        transition: all 300ms ease;
-      }
-
-      .loginActive button{
-          color: #fff;
-      }
-
-      .loginActive button:hover{
-          color: #fff;
-      }
-
-      .activeTransition{
-        background: linear-gradient(to right, #262B3E 50%, #E2953B 50% );
-        background-size: 200% 100%;
-        background-position: left bottom;
-        transition: all 300ms ease;
-      }
-
-      .regActive{
-        background: linear-gradient(to right, #E2953B 50%, #262B3E 50%);
-        background-size: 200% 100%;
-        background-position:left bottom;
-        transition: all 300ms ease;
-      }
-
-      .activeRegTransition{
-        background: linear-gradient(to left, #262B3E 50%, #E2953B 50% );
-        background-size: 200% 100%;
-        background-position: right bottom;
-        transition: all 300ms ease;
+       
+    }
+    
+    .loginRegister-Btns button {
+      height: 60%;
+      background: none;
+      color: #B3C7D2;
+      border: none;
+      font-size: 1.2rem;
+      letter-spacing:1px;
+    }
+    
+    .loginRegister-Btns button:hover{
+      color: #fff;
     }
 
-    .regActive button{
+    .loginRegister-Btns button:focus{
+      outline: none;
+    }
+    
+    .loginRegister-Btns > span {
+      width: 50%;
+      height: 70%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
+
+    .loginActive{
+      background: -webkit-gradient(linear, right top, left top, color-stop(50%, #E2953B), color-stop(50%, #262B3E));
+      background: -o-linear-gradient(right, #E2953B 50%, #262B3E 50%);
+      background: linear-gradient(to left, #E2953B 50%, #262B3E 50%);
+      background-size: 200% 100%;
+      background-position:right bottom;
+      -webkit-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
+    }
+
+    .loginActive button{
         color: #fff;
     }
 
-    .regActive button:hover{
+    .loginActive button:hover{
         color: #fff;
     }
 
-
-    .loginBox .alert-danger.alert{
-      background: rgb(238, 133, 107);
-      border-color: rgb(238, 133, 107);
-      border-radius: 0;
+    .activeTransition{
+      background: -webkit-gradient(linear, left top, right top, color-stop(50%, #262B3E), color-stop(50%, #E2953B) );
+      background: -o-linear-gradient(left, #262B3E 50%, #E2953B 50% );
+      background: linear-gradient(to right, #262B3E 50%, #E2953B 50% );
+      background-size: 200% 100%;
+      background-position: left bottom;
+      -webkit-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
     }
 
-      
+    .regActive{
+      background: -webkit-gradient(linear, left top, right top, color-stop(50%, #E2953B), color-stop(50%, #262B3E));
+      background: -o-linear-gradient(left, #E2953B 50%, #262B3E 50%);
+      background: linear-gradient(to right, #E2953B 50%, #262B3E 50%);
+      background-size: 200% 100%;
+      background-position:left bottom;
+      -webkit-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
+    }
+
+    .activeRegTransition{
+      background: -webkit-gradient(linear, right top, left top, color-stop(50%, #262B3E), color-stop(50%, #E2953B) );
+      background: -o-linear-gradient(right, #262B3E 50%, #E2953B 50% );
+      background: linear-gradient(to left, #262B3E 50%, #E2953B 50% );
+      background-size: 200% 100%;
+      background-position: right bottom;
+      -webkit-transition: all 300ms ease;
+      -o-transition: all 300ms ease;
+      transition: all 300ms ease;
+  }
+
+  .regActive button{
+      color: #fff;
+  }
+
+  .regActive button:hover{
+      color: #fff;
+  }
+
+
+  .loginBox .alert-danger.alert{
+    background: rgb(238, 133, 107);
+    border-color: rgb(238, 133, 107);
+    border-radius: 0;
+  }
+
+    
